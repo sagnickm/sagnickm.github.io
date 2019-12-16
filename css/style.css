@@ -37,7 +37,7 @@ ul {
     background-image: url(../images/creative2-banner-bg.jpg);
     height: 100vh;
     background-position: center;
-
+    background-attachment: fixed;
 }
 
 .banner:after {
