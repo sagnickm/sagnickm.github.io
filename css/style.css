@@ -244,15 +244,15 @@ section.about .about-content .about-heading {
 
 section.about .about-content .about-heading h2 {
     font-size: 32px;
-    font-weight: 600;
+    font-weight: 700;
     text-transform: uppercase;
-    color: #1a237e;
+    color: #3b4eda;
     letter-spacing: 1px;
 }
 
 section.about .about-content .about-heading span {
     font-family: "Raleway", san-serif;
-    color: #1a237e;
+    color: #3b4eda;
     font-size: 19px;
 }
 
@@ -270,10 +270,10 @@ section.about .about-content .social-icons a {
     line-height: 26px;
     text-align: center;
     margin-right: 10px;
-    background-color: #222;
+    background-color: #3b4eda;
     -webkit-border-radius: 50%;
     border-radius: 50%;
-    border: 2px solid #222;
+    border: 2px solid #3b4eda;
     width: 30px;
     height: 30px;
     -webkit-transition: .2s all ease;
@@ -289,13 +289,13 @@ section.about .about-content .social-icons a .fa {
 }
 
 section.about .about-content .social-icons a:hover {
-    border: 2px solid #222;
+    border: 2px solid #3b4eda;
     background: transparent;
     line-height: 26px;
 }
 
 section.about .about-content .social-icons a:hover .fa {
-    color: #222;
+    color: #3b4eda;
 }
 
 section.about .about-content .about-button {
@@ -304,9 +304,9 @@ section.about .about-content .about-button {
 
 section.about .main-btn {
     display: inline-block;
-    background-color: #1a237e;
+    background-color: #3b4eda;
     padding: 10px 20px;
-    border: 2px solid #1a237e;
+    border: 2px solid #3b4eda;
     color: #fff;
     text-transform: uppercase;
     -webkit-transition: .2s background-color ease;
@@ -321,8 +321,8 @@ section.about .main-btn {
 }
 
 section.about .main-btn:hover {
-    color: #1a237e;
-    border: 2px solid #1a237e;
+    color: #3b4eda;
+    border: 2px solid #3b4eda;
     background-color: #fff;
 }
 
@@ -396,7 +396,7 @@ section.services .service-item h4 {
     font-weight: 700;
     margin-bottom: 16px;
     text-transform: uppercase;
-    color: #1a237e;
+    color: #3b4eda;
     letter-spacing: 1px;
 }
 

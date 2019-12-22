@@ -28,7 +28,7 @@ ul {
 
 /*----------------------------- Blogs Page------------------------*/
 section.banner-blog {
-    height: 50vh;
+    height: 30vh;
     width: 100%;
     -webkit-background-size: cover;
     background-size: cover;
@@ -99,68 +99,36 @@ section.banner-blog .bread-crumb a:last-child:before {
 /*----------------------research box-----------------------*/
 .research {
     padding: 5rem 0;
+    text-align: center;
 }
 
-.content {
-	width: 80%;
-	margin: auto;
-	overflow: hidden;
-	margin-bottom: 2rem;
-	position: relative;
-}
-
-.content .content-overlay {
-	background: rgba(0,0,0,0.7);
-	position: absolute;
-	/* height: 99%; */
-	width: 100%;
-	/* left: 0; */
-	top: 0;
-	bottom: 0;
-	/* right: 0; */
-	opacity: 0;
-	-webkit-transition: all 0.4s ease-in-out 0s;
-	-moz-transition: all 0.4s ease-in-out 0s;
-	transition: all 0.4s ease-in-out 0s;
-	z-index: 9;
-	opacity: 1;
-}
-
-.content-image{
-  width: 100%;
-    position: relative;
-}
 
 .content-details {
-	position: absolute;
-	text-align: center;
-	padding-left: 1em;
-	padding-right: 1em;
-	width: 100%;
-	top: 50%;
-	left: 50%;
-	-webkit-transform: translate(-50%, -50%);
-	-moz-transform: translate(-50%, -50%);
-	transform: translate(-50%, -50%);
-	-webkit-transition: all 0.3s ease-in-out 0s;
-	-moz-transition: all 0.3s ease-in-out 0s;
-	transition: all 0.3s ease-in-out 0s;
-	/* opacity: 12; */
-	z-index: 9;
+    text-align: justify;
 }
 
 
-.content-details h3{
-  color: #fff;
-  font-weight: 600;
-  letter-spacing: 0.15em;
-  margin-bottom: 0.5em;
-  text-transform: uppercase;
+.content-title {
+    color: #3b4eda;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    margin: 2rem 0;
+    text-transform: uppercase;
     letter-spacing: 1px;
 }
 
-.content-details p{
-  color: #fff;
-  font-size: 0.8em;
+.content-details p {
+    color: #000;
+    font-size: 14px;
 }
 
+.content-details p a {
+    color: #3b4eda;
+}
+
+
+@media screen and (max-width: 991px) {
+  .content-details p {
+    margin-top: 10px;
+}
+}
