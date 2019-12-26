@@ -1,0 +1,239 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+a,
+body,
+html,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+li,
+p,
+ul {
+    margin: 0;
+    padding: 0
+}
+
+
+
+/*----------------------------- Blogs Page------------------------*/
+section.banner-blog {
+    height: 30vh;
+    width: 100%;
+    -webkit-background-size: cover;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+    overflow: hidden;
+    background-image: url(../images/creative2-banner-bg.jpg);
+    background-position: center right;
+    background-attachment: fixed;
+}
+
+section.banner-blog .banner-caption {
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    width: 100%;
+    text-align: center;
+}
+
+section.banner-blog .banner-caption h1 {
+    color: #fff;
+    font-size: 48px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+section.banner-blog .bread-crumb a {
+    color: #fff;
+    display: inline-block;
+    margin: 0 10px;
+    position: relative;
+    font-size: 14px;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+section.banner-blog .bread-crumb a:before {
+    content: "/";
+    position: absolute;
+    right: -15px;
+}
+
+section.banner-blog .bread-crumb a:last-child:before {
+    display: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*---------------------start coads---------------*/
+.coads {
+    padding: 50px 0;
+}
+.coads .coad-box {
+    background-color: #f2f2f2;
+    margin-bottom: 30px;
+    padding: 30px 20px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*------------------ About Section ---------------*/
+section.about {
+    padding: 80px 0;
+}
+
+section.about .about-img {
+    position: relative;
+}
+
+section.about .about-img:before {
+    content: "";
+    background-color: #f2f2f2;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    bottom: -10%;
+    left: -10%;
+    z-index: 0;
+}
+
+section.about .about-img img {
+    position: relative;
+    width: 100%;
+    z-index: 1;
+    -webkit-box-shadow: 0 0 85px 0 rgba(0, 0, 0, 0.14);
+    box-shadow: 0 0 85px 0 rgba(0, 0, 0, 0.14);
+}
+
+section.about .about-content .about-heading {
+    margin-bottom: 20px;
+}
+
+section.about .about-content .about-heading h2 {
+    font-size: 32px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #3b4eda;
+    letter-spacing: 1px;
+}
+
+section.about .about-content .about-heading span {
+    font-family: "Raleway", san-serif;
+    color: #3b4eda;
+    font-size: 19px;
+}
+
+section.about .about-content p {
+    line-height: 28px;
+}
+
+section.about .about-content .social-icons {
+    margin-top: 30px;
+}
+
+section.about .about-content .social-icons a {
+    display: inline-block;
+    font-size: 15px;
+    line-height: 26px;
+    text-align: center;
+    margin-right: 10px;
+    background-color: #3b4eda;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    border: 2px solid #3b4eda;
+    width: 30px;
+    height: 30px;
+    -webkit-transition: .2s all ease;
+    -o-transition: .2s all ease;
+    transition: .2s all ease;
+}
+
+section.about .about-content .social-icons a .fa {
+    color: #fff;
+    -webkit-transition: .2s all ease;
+    -o-transition: .2s all ease;
+    transition: .2s all ease;
+}
+
+section.about .about-content .social-icons a:hover {
+    border: 2px solid #3b4eda;
+    background: transparent;
+    line-height: 26px;
+}
+
+section.about .about-content .social-icons a:hover .fa {
+    color: #3b4eda;
+}
+
+section.about .about-content .about-button {
+    margin-top: 40px;
+}
+
+section.about .main-btn {
+    display: inline-block;
+    background-color: #3b4eda;
+    padding: 10px 20px;
+    border: 2px solid #3b4eda;
+    color: #fff;
+    text-transform: uppercase;
+    -webkit-transition: .2s background-color ease;
+    -o-transition: .2s background-color ease;
+    transition: .2s background-color ease;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 20px;
+    text-decoration: none;
+    transition: 0.5s;
+}
+
+section.about .main-btn:hover {
+    color: #3b4eda;
+    border: 2px solid #3b4eda;
+    background-color: #fff;
+}
+
+
+
+
+
