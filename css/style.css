@@ -53,20 +53,22 @@ ul {
 }
 
 .banner .banner-caption {
-    top: 50%;
-    position: absolute;
-    color: #fff;
-    z-index: 11;
-    width: 100%;
-    -webkit-transform: translateY(-50%);
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
+	top: 50%;
+	position: absolute;
+	color: #fff;
+	z-index: 11;
+	width: 100%;
+	-webkit-transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	left: 50%;
+	text-align: center;
 }
-
 .banner .banner-caption h1 {
     font-size: 88px;
     font-weight: 900;
     color: #fff;
+    margin-bottom: 30px;
 }
 
 .banner .banner-caption p {
@@ -138,11 +140,11 @@ ul {
 }
 
 .arrow {
-    position: absolute;
-    bottom: 10vh;
-    width: 100vw;
-    z-index: 20;
-    padding-left: 75px;
+   	z-index: 20;
+	position: absolute;
+	bottom: 4%;
+	left: 50%;
+	transform: translate(-50%, -50%);
 }
 
 .arrow a {
@@ -199,7 +201,16 @@ ul {
     }
 }
 
-
+@media screen and (max-width: 556px) {
+ .banner .banner-caption h1 {
+	font-size: 35px;
+}
+.banner .banner-caption p {
+	font-size: 15px;
+	font-family: "Raleway", san-serif;
+	color: #eee;
+}
+}
 
 
 
@@ -326,7 +337,12 @@ section.about .main-btn:hover {
     background-color: #fff;
 }
 
-
+@media screen and (max-width: 556px) {
+	section.about .about-content .about-heading {
+		margin-bottom: 20px;
+		margin-top: 40px;
+	}
+}
 
 
 
