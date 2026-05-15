@@ -1,228 +1,1212 @@
 <!DOCTYPE html>
+
 <html>
-
 <head>
-    <title>Sagnick Mukherjee</title>
-    <meta charset="UTF-8">
-    <meta name="description" content="">
-    <meta name="keywords" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sagnick Mukherjee</title>
+<meta charset="utf-8"/>
+<meta content="" name="description"/>
+<meta content="" name="keywords"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<!-- Latest compiled and minified CSS -->
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"/>
+<!--font-awasome-->
+<link href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet"/>
+<!--custom css-->
+<link href="css/publications.css" rel="stylesheet" type="text/css"/>
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<!--headline js-->
+<script src="js/animated-headline.js"></script>
+<!-- Refined page styling: design-only update -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;family=Playfair+Display:wght@700;800;900&amp;display=swap" rel="stylesheet"/>
+<style>
+        :root {
+            --page-bg: #07111f;
+            --page-bg-2: #0b1730;
+            --panel: rgba(255, 255, 255, 0.09);
+            --panel-strong: rgba(255, 255, 255, 0.13);
+            --border: rgba(255, 255, 255, 0.16);
+            --text: #f8fbff;
+            --muted: #c6d3e6;
+            --accent: #7dd3fc;
+            --accent-2: #c4b5fd;
+            --accent-3: #f9d976;
+            --shadow: 0 24px 70px rgba(0, 0, 0, 0.32);
+        }
 
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        * {
+            box-sizing: border-box;
+        }
 
-    <!--font-awasome-->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.min.css">
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            overflow-x: hidden;
+            color: var(--text);
+            font-family: "Inter", Arial, sans-serif;
+            line-height: 1.7;
+            background:
+                radial-gradient(circle at 8% 10%, rgba(125, 211, 252, 0.18), transparent 30%),
+                radial-gradient(circle at 92% 8%, rgba(196, 181, 253, 0.18), transparent 28%),
+                radial-gradient(circle at 50% 92%, rgba(249, 217, 118, 0.10), transparent 34%),
+                linear-gradient(180deg, var(--page-bg) 0%, var(--page-bg-2) 48%, var(--page-bg) 100%);
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+            transition: all 0.28s ease;
+        }
+
+        a:hover {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .container {
+            max-width: 1180px;
+        }
+
+        /* Hero banner */
+        .banner-blog {
+            position: relative;
+            min-height: 430px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 90px 24px 110px;
+            isolation: isolate;
+            overflow: hidden;
+            background:
+                linear-gradient(135deg, rgba(7, 17, 31, 0.72), rgba(11, 23, 48, 0.62)),
+                url("images/banner-bg.jpg") center center / cover no-repeat;
+        }
+
+        .banner-blog::before,
+        .banner-blog::after {
+            content: "";
+            position: absolute;
+            border-radius: 50%;
+            pointer-events: none;
+            filter: blur(1px);
+            z-index: -1;
+        }
+
+        .banner-blog::before {
+            width: 430px;
+            height: 430px;
+            left: -120px;
+            top: -150px;
+            background: radial-gradient(circle, rgba(125, 211, 252, 0.30), transparent 68%);
+        }
+
+        .banner-blog::after {
+            width: 520px;
+            height: 520px;
+            right: -180px;
+            bottom: -230px;
+            background: radial-gradient(circle, rgba(196, 181, 253, 0.28), transparent 68%);
+        }
+
+        .banner-caption {
+            width: min(900px, 100%);
+            padding: 46px 34px;
+            border: 1px solid var(--border);
+            border-radius: 34px;
+            background: rgba(255, 255, 255, 0.09);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            box-shadow: var(--shadow);
+        }
+
+        .banner-caption h1 {
+            margin: 0 0 18px;
+            font-family: "Playfair Display", Georgia, serif;
+            font-size: clamp(3rem, 7vw, 5.6rem);
+            line-height: 1.04;
+            letter-spacing: -0.04em;
+            font-weight: 900;
+            color: #ffffff;
+            text-shadow: 0 10px 30px rgba(0, 0, 0, 0.28);
+        }
+
+        .bread-crumb {
+            display: inline-flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+            margin-top: 0 !important;
+            padding: 11px 18px;
+            border-radius: 999px;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            background: rgba(255, 255, 255, 0.10);
+            color: var(--muted);
+            font-size: 0.95rem;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+        }
+
+        .bread-crumb a {
+            position: relative;
+            color: #edf6ff;
+        }
+
+        .bread-crumb a + a::before {
+            content: "•";
+            display: inline-block;
+            margin-right: 12px;
+            color: var(--accent);
+        }
+
+        .bread-crumb a:hover {
+            color: var(--accent);
+            transform: translateY(-1px);
+        }
+
+        /* Publication section */
+        .coads {
+            position: relative;
+            margin-top: -56px;
+            padding: 0 0 92px;
+            z-index: 2;
+        }
+
+        .coads .container {
+            position: relative;
+        }
+
+        .coads .row {
+            margin-left: 0;
+            margin-right: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+            padding: 30px;
+            border: 1px solid var(--border);
+            border-radius: 38px;
+            background: rgba(255, 255, 255, 0.06);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            box-shadow: var(--shadow);
+        }
+
+        .coads .col-md-12 {
+            max-width: 100%;
+            padding-left: 0;
+            padding-right: 0;
+        }
+
+        .coad-box {
+            position: relative;
+            width: 100%;
+            padding: 24px 26px;
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            border-radius: 24px;
+            background:
+                linear-gradient(135deg, rgba(255, 255, 255, 0.13), rgba(255, 255, 255, 0.055));
+            box-shadow: 0 16px 42px rgba(0, 0, 0, 0.20);
+            overflow: hidden;
+            transition:
+                transform 0.32s ease,
+                border-color 0.32s ease,
+                box-shadow 0.32s ease,
+                background 0.32s ease;
+        }
+
+        .coad-box::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 6px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--accent), var(--accent-2));
+            opacity: 0.95;
+        }
+
+        .coad-box::after {
+            content: "";
+            position: absolute;
+            width: 180px;
+            height: 180px;
+            right: -95px;
+            top: -95px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(125, 211, 252, 0.18), transparent 70%);
+            pointer-events: none;
+        }
+
+        .coad-box:hover {
+            transform: translateY(-5px);
+            border-color: rgba(125, 211, 252, 0.38);
+            background:
+                linear-gradient(135deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.07));
+            box-shadow: 0 24px 58px rgba(0, 0, 0, 0.28);
+        }
+
+        .coad-box p {
+            position: relative;
+            z-index: 1;
+            margin: 0;
+            padding-left: 8px;
+            color: var(--text);
+            font-size: 1.03rem;
+            line-height: 1.78;
+            letter-spacing: 0.005em;
+        }
+
+        .coad-box p > a {
+            color: #ffffff;
+            font-weight: 800;
+            text-decoration: none;
+            background-image: linear-gradient(90deg, var(--accent), var(--accent-2));
+            background-size: 0 2px;
+            background-repeat: no-repeat;
+            background-position: 0 100%;
+            transition:
+                color 0.28s ease,
+                background-size 0.28s ease;
+        }
+
+        .coad-box p > a:hover {
+            color: var(--accent);
+            background-size: 100% 2px;
+        }
+
+        /* About section */
+        .about {
+            position: relative;
+            padding: 20px 0 105px;
+        }
+
+        .about .row {
+            align-items: center;
+            margin: 0;
+            padding: 34px;
+            border: 1px solid var(--border);
+            border-radius: 40px;
+            background: rgba(255, 255, 255, 0.07);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            box-shadow: var(--shadow);
+        }
+
+        .about-img {
+            position: relative;
+            overflow: hidden;
+            border-radius: 32px;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            background: rgba(255, 255, 255, 0.08);
+            box-shadow: 0 24px 62px rgba(0, 0, 0, 0.30);
+        }
+
+        .about-img::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(180deg, transparent 45%, rgba(7, 17, 31, 0.40) 100%);
+            pointer-events: none;
+        }
+
+        .about-img img {
+            display: block;
+            width: 100%;
+            height: auto;
+            min-height: 470px;
+            object-fit: cover;
+            transform: scale(1.01);
+            transition: transform 0.55s ease;
+        }
+
+        .about-img:hover img {
+            transform: scale(1.055);
+        }
+
+        .about-content {
+            padding: 12px 12px 12px 28px;
+        }
+
+        .about-heading {
+            margin-bottom: 24px;
+        }
+
+        .about-heading h2 {
+            margin: 0 0 10px;
+            font-family: "Playfair Display", Georgia, serif;
+            font-size: clamp(2.2rem, 4.5vw, 3.6rem);
+            line-height: 1.05;
+            letter-spacing: -0.035em;
+            font-weight: 900;
+            color: #ffffff;
+        }
+
+        .about-heading span {
+            display: inline-flex;
+            align-items: center;
+            padding: 9px 14px;
+            border-radius: 999px;
+            border: 1px solid rgba(125, 211, 252, 0.28);
+            background: rgba(125, 211, 252, 0.10);
+            color: #dff5ff;
+            font-size: 0.94rem;
+            font-weight: 700;
+        }
+
+        .about-content p {
+            color: var(--muted);
+            margin-bottom: 16px;
+            font-size: 1.03rem;
+            line-height: 1.85;
+        }
+
+        .about-content b {
+            color: #ffffff;
+            font-weight: 800;
+        }
+
+        .about-content p a {
+            color: var(--accent);
+            font-weight: 800;
+            border-bottom: 1px solid rgba(125, 211, 252, 0.38);
+        }
+
+        .about-content p a:hover {
+            color: #ffffff;
+            border-bottom-color: #ffffff;
+        }
+
+        .social-icons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin: 28px 0 28px;
+        }
+
+        .social-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.16);
+            background: rgba(255, 255, 255, 0.10);
+            color: #ffffff;
+            font-size: 1.18rem;
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.20);
+        }
+
+        .social-icons a:hover {
+            transform: translateY(-4px);
+            border-color: rgba(125, 211, 252, 0.42);
+            background: rgba(125, 211, 252, 0.18);
+            color: var(--accent);
+        }
+
+        .about-button {
+            display: inline-block;
+        }
+
+        .main-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 176px;
+            min-height: 56px;
+            padding: 15px 26px;
+            border-radius: 999px;
+            border: 1px solid rgba(255, 255, 255, 0.20);
+            background: linear-gradient(135deg, var(--accent), var(--accent-2));
+            color: #06111f !important;
+            font-weight: 900;
+            letter-spacing: 0.01em;
+            box-shadow: 0 18px 38px rgba(125, 211, 252, 0.24);
+        }
+
+        .main-btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 24px 48px rgba(125, 211, 252, 0.34);
+            filter: brightness(1.05);
+        }
+
+        /* Responsive refinements */
+        @media (max-width: 991px) {
+            .banner-blog {
+                min-height: 380px;
+                padding: 74px 18px 96px;
+            }
+
+            .banner-caption {
+                padding: 36px 24px;
+                border-radius: 28px;
+            }
+
+            .coads {
+                margin-top: -42px;
+                padding-bottom: 72px;
+            }
+
+            .coads .row {
+                padding: 22px;
+                border-radius: 30px;
+            }
+
+            .coad-box {
+                padding: 22px 20px;
+            }
+
+            .about .row {
+                padding: 24px;
+                border-radius: 32px;
+            }
+
+            .about-img {
+                margin-bottom: 28px;
+            }
+
+            .about-content {
+                padding: 0;
+            }
+
+            .about-img img {
+                min-height: auto;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .banner-blog {
+                min-height: 330px;
+            }
+
+            .banner-caption h1 {
+                font-size: clamp(2.7rem, 13vw, 4rem);
+            }
+
+            .bread-crumb {
+                width: 100%;
+                gap: 8px;
+                font-size: 0.88rem;
+            }
+
+            .coads .row {
+                gap: 15px;
+                padding: 16px;
+            }
+
+            .coad-box {
+                border-radius: 20px;
+                padding: 19px 17px;
+            }
+
+            .coad-box p,
+            .about-content p {
+                font-size: 0.98rem;
+            }
+
+            .about {
+                padding-bottom: 74px;
+            }
+
+            .about .row {
+                padding: 16px;
+                border-radius: 26px;
+            }
+
+            .about-img {
+                border-radius: 24px;
+            }
+
+            .about-heading h2 {
+                font-size: 2.45rem;
+            }
+
+            .about-heading span {
+                border-radius: 18px;
+                line-height: 1.45;
+            }
+
+            .social-icons a {
+                width: 46px;
+                height: 46px;
+                border-radius: 14px;
+            }
+
+            .main-btn {
+                width: 100%;
+            }
+        }
+    
+
+        /* Publication-list refinements */
+        .coad-box-centered,
+        .coad-box-section-title {
+            text-align: center;
+        }
+
+        .coad-box-centered p,
+        .coad-box-section-title p {
+            padding-left: 0;
+        }
+
+        .coad-box-centered {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 84px;
+        }
+
+        .coad-box-centered p {
+            font-size: 1.08rem;
+            font-weight: 700;
+            letter-spacing: 0.01em;
+        }
+
+        .coad-box-centered p > a {
+            display: inline-block;
+        }
+
+        .coad-box-section-title {
+            margin-top: 8px;
+            padding-top: 22px;
+            padding-bottom: 22px;
+            border-color: rgba(249, 217, 118, 0.32);
+            background:
+                linear-gradient(135deg, rgba(249, 217, 118, 0.16), rgba(255, 255, 255, 0.06));
+        }
+
+        .coad-box-section-title::before {
+            background: linear-gradient(180deg, var(--accent-3), var(--accent));
+        }
+
+        .coad-box-section-title p {
+            font-size: 1.18rem;
+            font-weight: 900;
+            letter-spacing: 0.03em;
+        }
+
+        .coad-box-paper {
+            text-align: left;
+        }
+
+        .coad-box-paper p {
+            padding-left: 8px;
+            line-height: 1.82;
+        }
+
+        .coad-box-paper p > a {
+            display: inline;
+        }
+
+        @media (max-width: 767px) {
+            .coad-box-centered {
+                min-height: auto;
+            }
+
+            .coad-box-centered p,
+            .coad-box-section-title p {
+                font-size: 1rem;
+            }
+        }
 
 
-    <!--custom css-->
-    <link href="css/publications.css" rel="stylesheet" type="text/css">
 
-    <!-- jQuery library -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        /* Additional visual polish for a more refined publications page */
+        .coads .row {
+            gap: 20px;
+            padding: 34px;
+        }
 
-    <!-- Popper JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+        .coad-box {
+            position: relative;
+            isolation: isolate;
+        }
 
-    <!-- Latest compiled JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+        .coad-box::after {
+            opacity: 0.95;
+        }
 
-    <!--headline js-->
-    <script src="js/animated-headline.js"></script>
+        .coad-box:hover::after {
+            transform: scale(1.08);
+            transition: transform 0.4s ease;
+        }
 
+        /* Make the three opening banners feel intentional and premium */
+        .coad-box-centered {
+            min-height: 96px;
+            padding-top: 26px;
+            padding-bottom: 26px;
+            border-radius: 28px;
+            background:
+                linear-gradient(135deg, rgba(125, 211, 252, 0.15), rgba(196, 181, 253, 0.10)),
+                rgba(255, 255, 255, 0.07);
+        }
+
+        .coad-box-centered::before {
+            width: 100%;
+            height: 4px;
+            top: 0;
+            left: 0;
+            background: linear-gradient(90deg, var(--accent), var(--accent-2), var(--accent-3));
+        }
+
+        .coad-box-centered p {
+            max-width: 950px;
+            margin-left: auto;
+            margin-right: auto;
+            font-size: 1.12rem;
+            line-height: 1.65;
+            font-weight: 800;
+        }
+
+        .coad-box-centered p > a {
+            padding: 5px 0;
+        }
+
+        /* Section label */
+        .coad-box-section-title {
+            margin-top: 14px;
+            margin-bottom: 4px;
+            padding-top: 24px;
+            padding-bottom: 24px;
+            border-radius: 28px;
+            box-shadow: 0 18px 45px rgba(0, 0, 0, 0.24);
+        }
+
+        .coad-box-section-title p {
+            text-transform: none;
+            font-size: 1.28rem;
+            letter-spacing: 0.045em;
+        }
+
+        /* Publication cards: more editorial, less boxy */
+        .coad-box-paper {
+            padding: 28px 30px;
+            border-radius: 28px;
+            background:
+                linear-gradient(135deg, rgba(255, 255, 255, 0.135), rgba(255, 255, 255, 0.055));
+        }
+
+        .coad-box-paper::before {
+            width: 7px;
+            background: linear-gradient(180deg, var(--accent), var(--accent-2), var(--accent-3));
+        }
+
+        .coad-box-paper p {
+            padding-left: 12px;
+            font-size: 1.02rem;
+            line-height: 1.86;
+            color: rgba(248, 251, 255, 0.92);
+        }
+
+        .coad-box-paper p > a {
+            display: block;
+            width: fit-content;
+            max-width: 100%;
+            margin-bottom: 10px;
+            font-size: 1.16rem;
+            line-height: 1.48;
+            font-weight: 900;
+            letter-spacing: -0.012em;
+            color: #ffffff;
+            background-image: linear-gradient(90deg, var(--accent), var(--accent-2), var(--accent-3));
+            background-size: 0 2px;
+            background-position: 0 100%;
+        }
+
+        .coad-box-paper:hover p > a {
+            color: var(--accent);
+            background-size: 100% 2px;
+        }
+
+        .coad-box-paper:hover {
+            transform: translateY(-6px);
+            border-color: rgba(125, 211, 252, 0.44);
+            box-shadow: 0 30px 68px rgba(0, 0, 0, 0.32);
+        }
+
+        /* Slightly richer glow behavior while preserving the same theme */
+        .coad-box-paper:nth-of-type(odd)::after {
+            background: radial-gradient(circle, rgba(196, 181, 253, 0.18), transparent 70%);
+        }
+
+        .coad-box-paper:nth-of-type(even)::after {
+            background: radial-gradient(circle, rgba(125, 211, 252, 0.18), transparent 70%);
+        }
+
+        /* Give the whole about/publication transition more breathing room */
+        .about {
+            padding-top: 34px;
+        }
+
+        /* Responsive refinement */
+        @media (max-width: 991px) {
+            .coads .row {
+                gap: 18px;
+                padding: 24px;
+            }
+
+            .coad-box-paper {
+                padding: 24px 22px;
+            }
+
+            .coad-box-paper p > a {
+                font-size: 1.1rem;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .coads .row {
+                padding: 16px;
+                gap: 16px;
+            }
+
+            .coad-box-centered {
+                padding-top: 22px;
+                padding-bottom: 22px;
+                min-height: auto;
+            }
+
+            .coad-box-centered p {
+                font-size: 1rem;
+            }
+
+            .coad-box-section-title p {
+                font-size: 1.08rem;
+            }
+
+            .coad-box-paper {
+                padding: 21px 18px;
+                border-radius: 22px;
+            }
+
+            .coad-box-paper p {
+                padding-left: 8px;
+                line-height: 1.78;
+            }
+
+            .coad-box-paper p > a {
+                font-size: 1.04rem;
+                line-height: 1.45;
+                margin-bottom: 8px;
+            }
+        }
+
+
+
+        /* =========================================================
+           Classier, understated academic visual direction
+           ========================================================= */
+
+        :root {
+            --page-bg: #f3f0e9;
+            --page-bg-2: #ece7dc;
+            --panel: rgba(255, 252, 246, 0.86);
+            --panel-strong: rgba(255, 252, 246, 0.96);
+            --border: rgba(49, 58, 70, 0.16);
+            --text: #24303d;
+            --muted: #5f6975;
+            --accent: #344a5f;
+            --accent-2: #7a6245;
+            --accent-3: #a28a68;
+            --shadow: 0 18px 52px rgba(33, 39, 46, 0.10);
+        }
+
+        body {
+            color: var(--text);
+            background:
+                radial-gradient(circle at 14% 8%, rgba(122, 98, 69, 0.08), transparent 28%),
+                radial-gradient(circle at 88% 4%, rgba(52, 74, 95, 0.08), transparent 30%),
+                linear-gradient(180deg, var(--page-bg) 0%, var(--page-bg-2) 52%, var(--page-bg) 100%);
+        }
+
+        /* Hero banner: dignified, muted, less glossy */
+        .banner-blog {
+            min-height: 405px;
+            background:
+                linear-gradient(135deg, rgba(31, 42, 54, 0.90), rgba(48, 57, 69, 0.82)),
+                url("images/banner-bg.jpg") center center / cover no-repeat;
+        }
+
+        .banner-blog::before {
+            background: radial-gradient(circle, rgba(198, 182, 153, 0.18), transparent 70%);
+        }
+
+        .banner-blog::after {
+            background: radial-gradient(circle, rgba(215, 207, 192, 0.12), transparent 70%);
+        }
+
+        .banner-caption {
+            border: 1px solid rgba(244, 239, 229, 0.22);
+            background: rgba(25, 33, 43, 0.40);
+            box-shadow: 0 24px 72px rgba(0, 0, 0, 0.22);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .banner-caption h1 {
+            color: #f8f4eb;
+            letter-spacing: -0.03em;
+            text-shadow: none;
+        }
+
+        .bread-crumb {
+            border: 1px solid rgba(244, 239, 229, 0.22);
+            background: rgba(255, 250, 240, 0.08);
+            color: rgba(248, 244, 235, 0.82);
+        }
+
+        .bread-crumb a {
+            color: #f8f4eb;
+        }
+
+        .bread-crumb a + a::before {
+            color: rgba(231, 219, 198, 0.90);
+        }
+
+        .bread-crumb a:hover {
+            color: #efe2ca;
+        }
+
+        /* Main publication surface */
+        .coads .row {
+            border: 1px solid var(--border);
+            background: rgba(255, 252, 246, 0.78);
+            box-shadow: var(--shadow);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+
+        .coad-box {
+            border: 1px solid rgba(49, 58, 70, 0.14);
+            background: rgba(255, 252, 246, 0.94);
+            box-shadow: 0 10px 28px rgba(33, 39, 46, 0.07);
+        }
+
+        .coad-box::after {
+            display: none;
+        }
+
+        .coad-box:hover {
+            transform: translateY(-3px);
+            border-color: rgba(52, 74, 95, 0.28);
+            background: #fffdf8;
+            box-shadow: 0 18px 38px rgba(33, 39, 46, 0.11);
+        }
+
+        .coad-box::before {
+            background: linear-gradient(180deg, var(--accent), var(--accent-2));
+            opacity: 0.88;
+        }
+
+        .coad-box p {
+            color: var(--text);
+        }
+
+        .coad-box p > a {
+            color: var(--accent);
+            background-image: linear-gradient(90deg, var(--accent), var(--accent-2));
+        }
+
+        .coad-box p > a:hover {
+            color: #253746;
+        }
+
+        /* Summary banners */
+        .coad-box-centered {
+            background:
+                linear-gradient(135deg, rgba(52, 74, 95, 0.06), rgba(122, 98, 69, 0.05)),
+                rgba(255, 252, 246, 0.96);
+        }
+
+        .coad-box-centered::before {
+            background: linear-gradient(90deg, var(--accent), var(--accent-2), var(--accent-3));
+        }
+
+        .coad-box-centered p {
+            color: #26323f;
+            font-weight: 700;
+        }
+
+        /* Section title */
+        .coad-box-section-title {
+            border-color: rgba(122, 98, 69, 0.22);
+            background:
+                linear-gradient(135deg, rgba(122, 98, 69, 0.08), rgba(52, 74, 95, 0.03)),
+                rgba(255, 252, 246, 0.98);
+            box-shadow: 0 12px 30px rgba(33, 39, 46, 0.07);
+        }
+
+        .coad-box-section-title::before {
+            background: linear-gradient(180deg, var(--accent-2), var(--accent));
+        }
+
+        .coad-box-section-title p {
+            color: #2c3947;
+            letter-spacing: 0.035em;
+        }
+
+        /* Publication cards: quiet and editorial */
+        .coad-box-paper {
+            background: rgba(255, 252, 246, 0.98);
+        }
+
+        .coad-box-paper::before {
+            background: linear-gradient(180deg, var(--accent), var(--accent-2));
+        }
+
+        .coad-box-paper p {
+            color: #36414d;
+        }
+
+        .coad-box-paper p > a {
+            color: #24394b;
+            background-image: linear-gradient(90deg, #344a5f, #7a6245);
+        }
+
+        .coad-box-paper:hover p > a {
+            color: #233545;
+        }
+
+        .coad-box-paper:hover {
+            border-color: rgba(52, 74, 95, 0.30);
+            box-shadow: 0 18px 42px rgba(33, 39, 46, 0.12);
+        }
+
+        /* About section */
+        .about .row {
+            border: 1px solid var(--border);
+            background: rgba(255, 252, 246, 0.82);
+            box-shadow: var(--shadow);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+
+        .about-img {
+            border: 1px solid rgba(49, 58, 70, 0.16);
+            background: rgba(255, 252, 246, 0.90);
+            box-shadow: 0 16px 38px rgba(33, 39, 46, 0.12);
+        }
+
+        .about-img::after {
+            background: linear-gradient(180deg, transparent 58%, rgba(31, 42, 54, 0.18) 100%);
+        }
+
+        .about-heading h2 {
+            color: #25313e;
+        }
+
+        .about-heading span {
+            border: 1px solid rgba(52, 74, 95, 0.18);
+            background: rgba(52, 74, 95, 0.07);
+            color: #384b5d;
+        }
+
+        .about-content p {
+            color: var(--muted);
+        }
+
+        .about-content b {
+            color: #25313e;
+        }
+
+        .about-content p a {
+            color: #344a5f;
+            border-bottom-color: rgba(52, 74, 95, 0.34);
+        }
+
+        .about-content p a:hover {
+            color: #7a6245;
+            border-bottom-color: rgba(122, 98, 69, 0.48);
+        }
+
+        .social-icons a {
+            border: 1px solid rgba(49, 58, 70, 0.16);
+            background: rgba(255, 252, 246, 0.92);
+            color: #344a5f;
+            box-shadow: 0 8px 22px rgba(33, 39, 46, 0.08);
+        }
+
+        .social-icons a:hover {
+            border-color: rgba(52, 74, 95, 0.28);
+            background: rgba(52, 74, 95, 0.08);
+            color: #24394b;
+        }
+
+        .main-btn {
+            border: 1px solid rgba(52, 74, 95, 0.18);
+            background: linear-gradient(135deg, #344a5f, #42596d);
+            color: #f8f4eb !important;
+            box-shadow: 0 14px 28px rgba(52, 74, 95, 0.20);
+        }
+
+        .main-btn:hover {
+            box-shadow: 0 18px 34px rgba(52, 74, 95, 0.24);
+            filter: none;
+            background: linear-gradient(135deg, #2f4356, #3c5164);
+        }
+
+        /* Tone down oversized publication title treatment slightly */
+        .coad-box-paper p > a {
+            font-size: 1.11rem;
+            font-weight: 800;
+        }
+
+        @media (max-width: 767px) {
+            .banner-blog {
+                min-height: 320px;
+            }
+
+            .coad-box-paper p > a {
+                font-size: 1.02rem;
+            }
+        }
+
+</style>
 </head>
-
-
-
-
-
 <body>
+<section class="banner-blog">
+<!--Banner Caption-->
+<div class="banner-caption text-center">
+<h1>Publications</h1>
+<div class="bread-crumb mt-10">
+<a href="index.html">Home</a>
+<a href="publications.html">Publications</a>
+</div>
+</div>
+</section>
+<!--------------start coads------------------>
+<section class="coads">
+<div class="container">
+<div class="row">
+<div class="col-md-12"></div>
+<div class="coad-box coad-box-centered">
+<p> 12 first authored and 46 co-authored publications, h-index=28, citations=3654 </p>
+</div>
+</div>
+<div class="col-md-12">
+<div class="coad-box coad-box-centered">
+<p> <a href="https://ui.adsabs.harvard.edu/public-libraries/ZFS8zBDTTXe2DDuNC5bjqQ">Complete List from NASA ADS</a> </p>
+</div>
+</div>
+<div class="col-md-12"></div>
+<div class="coad-box coad-box-centered">
+<p> <a href="https://scholar.google.com/citations?user=VFxhOAkAAAAJ&amp;hl=en">Google Scholar Profile</a> </p>
+</div>
+</div>
+<div class="col-md-12"></div>
+<div class="coad-box coad-box-section-title">
+<p> Selected List of Papers </p>
+</div>
 
+<div class="col-md-12"></div>
+<div class="coad-box coad-box-paper">
+<p> <a href="https://arxiv.org/abs/2505.10910">`Cloudy Mornings and Clear Evenings on a Giant Extrasolar World'</a> Sagnick Mukherjee, David K. Sing, Guangwei Fu, Kevin B. Stevenson,  et al. (2026, in press, Science) </p>
+</div>
 
+<div class="col-md-12"></div>
+<div class="coad-box coad-box-paper">
+<p> <a href="https://iopscience.iop.org/article/10.3847/1538-4357/ae3539">`The Impact of Irradiation on the Radius and Thermal Evolution of Transiting Brown Dwarfs'</a> Sagnick Mukherjee, Jonathan J. Fortney, et al. (2026, ApJ) </p>
+</div>
 
-    <section class="banner-blog">
-        <!--Banner Caption-->
-        <div class="banner-caption text-center">
-            <h1>Publications</h1>
-            <div class="bread-crumb mt-10">
-                <a href="index.html">Home</a>
-                <a href="publications.html">Publications</a>
+<div class="col-md-12"></div>
+<div class="coad-box coad-box-paper">
+<p> <a href="https://iopscience.iop.org/article/10.3847/2041-8213/adba46">`A JWST Panchromatic Thermal Emission Spectrum of the Warm Neptune Archetype GJ 436b'</a> Sagnick Mukherjee, Everett Schlawin, Taylor J. Bell, Jonathan J. Fortney,  et al. ( January 2025, The Astrophysical Journal Letter (2025, ApJL)) </p>
+</div>
 
-            </div>
-        </div>
-    </section>
+<div class="col-md-12"></div>
+<div class="coad-box coad-box-paper">
+<p> <a href="https://ui.adsabs.harvard.edu/abs/2025ApJ...985..209M/abstract">`Effects of Planetary Parameters on Disequilibrium Chemistry in Irradiated Planetary Atmospheres:From Gas Giants to Sub-Neptunes'</a> Sagnick Mukherjee, Jonathan J. Fortney, Nicholas F. Wogan, David K. Sing, Kazumasa Ohno ( March 2025, The Astrophysical Journal (ApJ)) </p>
+</div>
 
-
-
-
-
-
-
-
-
-
-    <!--------------start coads------------------>
-    <section class="coads">
-        <div class="container">
-            <div class="row">
-
-                <div class="col-md-12"></div>
-                    <div class="coad-box">
-                        <p> 12 first authored and 46 co-authored publications, h-index=28, citations=3654 </p>
-                    </div>
-                </div>
-
-                <div class="col-md-12">
-                    <div class="coad-box">
-                        <p> <a href="https://ui.adsabs.harvard.edu/public-libraries/ZFS8zBDTTXe2DDuNC5bjqQ">Complete List from NASA ADS</a> </p>
-                    </div>
-                </div>
-
-                <div class="col-md-12"></div>
-                    <div class="coad-box">
-                        <p> <a href="https://scholar.google.com/citations?user=VFxhOAkAAAAJ&hl=en">Google Scholar Profile</a> </p>
-                    </div>
-                </div>
-
-                <div class="col-md-12"></div>
-                    <div class="coad-box">
-                        <p> List of Selected Papers </p>
-                    </div>
-                </div>
-
-                <div class="col-md-12"></div>
-                    <div class="coad-box">
-                        <p> <a href="https://arxiv.org/abs/2505.10910">`Cloudy Mornings and Clear Evenings on a Giant Extrasolar World'</a>, Sagnick Mukherjee, David K. Sing, Guangwei Fu, Kevin B. Stevenson,  et al. (2026, in press, Science) </p>
-                    </div>
-                </div>
-
-                <div class="col-md-12"></div>
-                    <div class="coad-box">
-                        <p> <a href="https://iopscience.iop.org/article/10.3847/1538-4357/ae3539">`The Impact of Irradiation on the Radius and Thermal Evolution of Transiting Brown Dwarfs'</a>, Sagnick Mukherjee, Jonathan J. Fortney, et al. (2026, ApJ) </p>
-                    </div>
-                </div>
-
-                <div class="col-md-12"></div>
-                    <div class="coad-box">
-                        <p> <a href="https://iopscience.iop.org/article/10.3847/2041-8213/adba46">`A JWST Panchromatic Thermal Emission Spectrum of the Warm Neptune Archetype GJ 436b'</a>, Sagnick Mukherjee, Everett Schlawin, Taylor J. Bell, Jonathan J. Fortney,  et al. ( January 2025, The Astrophysical Journal Letter (2025, ApJL)) </p>
-                    </div>
-                </div>
-
-                <div class="col-md-12"></div>
-                    <div class="coad-box">
-                        <p> <a href="https://ui.adsabs.harvard.edu/abs/2025ApJ...985..209M/abstract">`Effects of Planetary Parameters on Disequilibrium Chemistry in Irradiated Planetary Atmospheres:From Gas Giants to Sub-Neptunes'</a>, Sagnick Mukherjee, Jonathan J. Fortney, Nicholas F. Wogan, David K. Sing, Kazumasa Ohno ( March 2025, The Astrophysical Journal (ApJ)) </p>
-                    </div>
-                </div>
-
-                <div class="col-md-12">
-                    <div class="coad-box">
-                        <p> <a href="https://ui.adsabs.harvard.edu/abs/2024arXiv240200756M/abstract">`The Sonora Substellar Atmosphere Models. IV. Elf Owl: Atmospheric Mixing and Chemical Disequilibrium with Varying Metallicity and C/O Ratios'</a>, Sagnick Mukherjee, Jonathan J. Fortney, Caroline V. Morley, Natasha E. Batalha, Mark S. Marley, Theodora Karalidi, Channon Visscher, Roxana Lupu, Richard Freedman, Ehsan Gharib-Nezhad ( February 2024, The Astrophysical Journal (ApJ)) </p>
-                    </div>
-                </div>
-
-                
-                <div class="col-md-12">
-                    <div class="coad-box">
-                        <p> <a href="https://ui.adsabs.harvard.edu/abs/2022arXiv220807836M/abstract">`PICASO 3.0: A One-Dimensional Climate Model for Giant Planets and Brown Dwarfs'</a>, Sagnick Mukherjee, Natasha E. Batalha, Jonathan J. Fortney, Mark S  Marley ( August 2022, The Astrophysical Journal (ApJ) </p>
-                    </div>
-                </div>
-
-                <div class="col-md-12">
-                    <div class="coad-box">
-                        <p> <a href="https://ui.adsabs.harvard.edu/abs/2022arXiv220814317M/abstract">`Probing the Extent of Vertical Mixing in Brown Dwarf Atmospheres with Disequilibrium Chemistry'</a>, Sagnick Mukherjee, Jonathan J. Fortney, Natasha E. Batalha, Theodora Karilidi, Mark S. Marley, Channon Visscher, Brittany E. Miles, Andrew J. I. Skemer ( August 2022, The Astrophysical Journal (ApJ)) </p>
-                    </div>
-                </div>
-
-                <div class="col-md-12">
-                    <div class="coad-box">
-                        <p> <a href="https://ui.adsabs.harvard.edu/abs/2021ApJ...923..113M/abstract">`Modeling Polarization Signals from Cloudy Brown Dwarfs Luhman 16 A and B in Three Dimensions'</a>, Sagnick Mukherjee, Jonathan J. Fortney, Rebecca Jensen-Clem, Xianyu Tan, Mark S. Marley, Natasha E. Batalha (December 2021, The Astrophysical Journal, Volume 923)</p>
-                    </div>
-                </div>
-
-                <div class="col-md-12">
-                    <div class="coad-box">
-                        <p> <a href="https://ui.adsabs.harvard.edu/abs/2021ApJ...910..158M/abstract">`Cloud Parameterizations and their Effect on Retrievals of Exoplanet Reflection Spectroscopy'</a>, Sagnick Mukherjee, Natasha E. Batalha, Mark S. Marley (April 2021, The Astrophysical Journal, Volume 910)</p>
-                    </div>
-                </div>
-                
-                <div class="col-md-12">
-                    <div class="coad-box">
-                        <p> <a href="https://ui.adsabs.harvard.edu/abs/2024arXiv240615543S/abstract">`Multiple Clues for Dayside Aerosols and Temperature Gradients in WASP-69 b from a Panchromatic JWST Emission Spectrum'</a>, Everett Schlawin, Sagnick Mukherjee, Kazumasa Ohno, Taylor Bell, Thomas G. Beatty, Thomas P. Greene, Michael Line, Ryan C. Challener, Vivien Parmentier, Jonathan J. Fortney, Emily Rauscher, Lindsey  Wiser, Luis Welbanks, Matthew Murphy, Isaac Edelman, Natasha Batalha, Sarah E. Moran, Nishil Mehta, Marcia Rieke (June 2024, The Astrophysical Journal)</p>
-                    </div>
-                </div>
-                
-
-                <div class="col-md-12">
-                    <div class="coad-box">
-                        <p> <a href="https://ui.adsabs.harvard.edu/abs/2024arXiv240200758M/abstract">`The Sonora Substellar Atmosphere Models. III. Diamondback: Atmospheric Properties, Spectra, and Evolution for Warm Cloudy Substellar Objects'</a>, Caroline V. Morley, Sagnick Mukherjee, Mark S. Marley, Jonathan J. Fortney, Channon Visscher, Roxana Lupu, Ehsan Gharib-Nezhad, Daniel Thorngren, Richard Freedman, Natasha Batalha (February 2024, The Astrophysical Journal)</p>
-                    </div>
-                </div>
-
-                <div class="col-md-12">
-                    <div class="coad-box">
-                        <p> <a href="https://ui.adsabs.harvard.edu/abs/2024arXiv240417658G/abstract">`The atmosphere of HD 149026b: Low metal-enrichment and weak energy transport'</a>, Anna Gagnebin, Sagnick Mukherjee, Jonathan J. Fortney, Natasha E. Batalha (April 2024, The Astrophysical Journal, in press)</p>
-                    </div>
-                </div>
-        
-    </section>
-
-
-
-
-
-
-
-
-
-
-    <!--About Section Start-->
-    <section class="about" id="about-me">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-5 col-md-6">
-                    <!--About Image-->
-                    <div class="about-img">
-                        <img src="images/about-img2.jpg" alt="">
-                    </div>
-                </div>
-                <div class="col-lg-7 col-md-6">
-                    <!--About Content-->
-                    <div class="about-content">
-                        <div class="about-heading">
-                            <h2>About Me</h2>
-                            <span>Professional Interests - Astronomy and Astrophysics</span>
-                        </div>
-                        <p> Research Focus: <b>Extrasolar Planets</b> and <b>Brown Dwarfs</b>.</p>
-                        <p> My research asks a fundamental question: how do planets and substellar objects form and evolve, and what shapes their observed diversity today? I address this by theoretically understanding the atmospheres of substellar objects across a broad mass range, from brown dwarfs and giant exoplanets to sub-Neptunes and terrestrial worlds. I seek to unravel the physical, chemical, and geological processes that govern these atmospheres using optical/infrared spectroscopy from space-based observatories such as JWST/HST and from ground-based facilities (e.g., Gemini). I am also an expert on observational studies of exoplanet atmospheres. By connecting atmospheric properties to interior structure, evolutionary pathways, and formation environments, I aim to reveal the mechanisms that shape planetary origins, diversity, and assess their potential for habitability. </p>
-                        <p> Click on the <a href="https://sagnickm.github.io/research.html">Research</a> tab to know more about my research.</b> </p>
-                        <p> Send me an email at <b>"smukhe50@asu.edu"</b> </p>
-                        <!--About Social Icons-->
-                        <div class="social-icons">
-                            <a href="https://www.facebook.com/sagnick.mukherjee.3"><i class="fa fa-facebook"></i></a>
-                            <a href="#"><i class="fa fa-twitter"></i></a>
-                            <a href="sagnickm@yahoo.in"><i class="fa fa-envelope"></i></a>
-                            <a href="#"><i class="fa fa-google-plus"></i></a>
-                            <a href="https://github.com/sagnickm"><i class="fa fa-github"></i></a>
-                        </div>
-                        <span class="about-button">
-                            <a class="main-btn" href="CV.pdf">Download CV</a>
-                        </span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!--About Section End-->
-
-
-
-
-
-
+<div class="col-md-12">
+<div class="coad-box coad-box-paper">
+<p> <a href="https://ui.adsabs.harvard.edu/abs/2024arXiv240200756M/abstract">`The Sonora Substellar Atmosphere Models. IV. Elf Owl: Atmospheric Mixing and Chemical Disequilibrium with Varying Metallicity and C/O Ratios'</a> Sagnick Mukherjee, Jonathan J. Fortney, Caroline V. Morley, Natasha E. Batalha, Mark S. Marley, Theodora Karalidi, Channon Visscher, Roxana Lupu, Richard Freedman, Ehsan Gharib-Nezhad ( February 2024, The Astrophysical Journal (ApJ)) </p>
+</div>
+</div>
+<div class="col-md-12">
+<div class="coad-box coad-box-paper">
+<p> <a href="https://ui.adsabs.harvard.edu/abs/2022arXiv220807836M/abstract">`PICASO 3.0: A One-Dimensional Climate Model for Giant Planets and Brown Dwarfs'</a> Sagnick Mukherjee, Natasha E. Batalha, Jonathan J. Fortney, Mark S  Marley ( August 2022, The Astrophysical Journal (ApJ) </p>
+</div>
+</div>
+<div class="col-md-12">
+<div class="coad-box coad-box-paper">
+<p> <a href="https://ui.adsabs.harvard.edu/abs/2022arXiv220814317M/abstract">`Probing the Extent of Vertical Mixing in Brown Dwarf Atmospheres with Disequilibrium Chemistry'</a> Sagnick Mukherjee, Jonathan J. Fortney, Natasha E. Batalha, Theodora Karilidi, Mark S. Marley, Channon Visscher, Brittany E. Miles, Andrew J. I. Skemer ( August 2022, The Astrophysical Journal (ApJ)) </p>
+</div>
+</div>
+<div class="col-md-12">
+<div class="coad-box coad-box-paper">
+<p> <a href="https://ui.adsabs.harvard.edu/abs/2021ApJ...923..113M/abstract">`Modeling Polarization Signals from Cloudy Brown Dwarfs Luhman 16 A and B in Three Dimensions'</a> Sagnick Mukherjee, Jonathan J. Fortney, Rebecca Jensen-Clem, Xianyu Tan, Mark S. Marley, Natasha E. Batalha (December 2021, The Astrophysical Journal, Volume 923)</p>
+</div>
+</div>
+<div class="col-md-12">
+<div class="coad-box coad-box-paper">
+<p> <a href="https://ui.adsabs.harvard.edu/abs/2021ApJ...910..158M/abstract">`Cloud Parameterizations and their Effect on Retrievals of Exoplanet Reflection Spectroscopy'</a> Sagnick Mukherjee, Natasha E. Batalha, Mark S. Marley (April 2021, The Astrophysical Journal, Volume 910)</p>
+</div>
+</div>
+<div class="col-md-12">
+<div class="coad-box coad-box-paper">
+<p> <a href="https://ui.adsabs.harvard.edu/abs/2024arXiv240615543S/abstract">`Multiple Clues for Dayside Aerosols and Temperature Gradients in WASP-69 b from a Panchromatic JWST Emission Spectrum'</a> Everett Schlawin, Sagnick Mukherjee, Kazumasa Ohno, Taylor Bell, Thomas G. Beatty, Thomas P. Greene, Michael Line, Ryan C. Challener, Vivien Parmentier, Jonathan J. Fortney, Emily Rauscher, Lindsey  Wiser, Luis Welbanks, Matthew Murphy, Isaac Edelman, Natasha Batalha, Sarah E. Moran, Nishil Mehta, Marcia Rieke (June 2024, The Astrophysical Journal)</p>
+</div>
+</div>
+<div class="col-md-12">
+<div class="coad-box coad-box-paper">
+<p> <a href="https://ui.adsabs.harvard.edu/abs/2024arXiv240200758M/abstract">`The Sonora Substellar Atmosphere Models. III. Diamondback: Atmospheric Properties, Spectra, and Evolution for Warm Cloudy Substellar Objects'</a> Caroline V. Morley, Sagnick Mukherjee, Mark S. Marley, Jonathan J. Fortney, Channon Visscher, Roxana Lupu, Ehsan Gharib-Nezhad, Daniel Thorngren, Richard Freedman, Natasha Batalha (February 2024, The Astrophysical Journal)</p>
+</div>
+</div>
+<div class="col-md-12">
+<div class="coad-box coad-box-paper">
+<p> <a href="https://ui.adsabs.harvard.edu/abs/2024arXiv240417658G/abstract">`The atmosphere of HD 149026b: Low metal-enrichment and weak energy transport'</a> Anna Gagnebin, Sagnick Mukherjee, Jonathan J. Fortney, Natasha E. Batalha (April 2024, The Astrophysical Journal, in press)</p>
+</div>
+</div>
+</section>
+<!--About Section Start-->
+<section class="about" id="about-me">
+<div class="container">
+<div class="row">
+<div class="col-lg-5 col-md-6">
+<!--About Image-->
+<div class="about-img">
+<img alt="" src="images/about-img2.jpg"/>
+</div>
+</div>
+<div class="col-lg-7 col-md-6">
+<!--About Content-->
+<div class="about-content">
+<div class="about-heading">
+<h2>About Me</h2>
+<span>Professional Interests - Astronomy and Astrophysics</span>
+</div>
+<p> Research Focus: <b>Extrasolar Planets</b> and <b>Brown Dwarfs</b>.</p>
+<p> My research asks a fundamental question: how do planets and substellar objects form and evolve, and what shapes their observed diversity today? I address this by theoretically understanding the atmospheres of substellar objects across a broad mass range, from brown dwarfs and giant exoplanets to sub-Neptunes and terrestrial worlds. I seek to unravel the physical, chemical, and geological processes that govern these atmospheres using optical/infrared spectroscopy from space-based observatories such as JWST/HST and from ground-based facilities (e.g., Gemini). I am also an expert on observational studies of exoplanet atmospheres. By connecting atmospheric properties to interior structure, evolutionary pathways, and formation environments, I aim to reveal the mechanisms that shape planetary origins, diversity, and assess their potential for habitability. </p>
+<p> Click on the <a href="https://sagnickm.github.io/research.html">Research</a> tab to know more about my research. </p>
+<p> Send me an email at <b>"smukhe50@asu.edu"</b> </p>
+<!--About Social Icons-->
+<div class="social-icons">
+<a href="https://www.facebook.com/sagnick.mukherjee.3"><i class="fa fa-facebook"></i></a>
+<a href="#"><i class="fa fa-twitter"></i></a>
+<a href="sagnickm@yahoo.in"><i class="fa fa-envelope"></i></a>
+<a href="#"><i class="fa fa-google-plus"></i></a>
+<a href="https://github.com/sagnickm"><i class="fa fa-github"></i></a>
+</div>
+<span class="about-button">
+<a class="main-btn" href="CV.pdf">Download CV</a>
+</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!--About Section End-->
 </body>
-
-
-
-
 </html>

@@ -1,80 +1,512 @@
 <!DOCTYPE html>
+
 <html>
-
 <head>
-    <title>Sagnick Mukherjee</title>
-    <meta charset="UTF-8">
-    <meta name="description" content="">
-    <meta name="keywords" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sagnick Mukherjee</title>
+<meta charset="utf-8"/>
+<meta content="" name="description"/>
+<meta content="" name="keywords"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<!-- Latest compiled and minified CSS -->
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"/>
+<!--font-awasome-->
+<link href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet"/>
+<!--custom css-->
+<link href="css/research.css" rel="stylesheet" type="text/css"/>
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<!--headline js-->
+<script src="js/animated-headline.js"></script>
+<!-- Refined academic theme: design-only update -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=Playfair+Display:wght@700;800;900&amp;display=swap" rel="stylesheet"/>
+<style>
+        :root {
+            --page-bg: #f3f0e9;
+            --page-bg-2: #ece7dc;
+            --surface: rgba(255, 252, 246, 0.92);
+            --surface-strong: rgba(255, 252, 246, 0.98);
+            --border: rgba(49, 58, 70, 0.16);
+            --text: #24303d;
+            --muted: #5f6975;
+            --accent: #344a5f;
+            --accent-2: #7a6245;
+            --accent-3: #a28a68;
+            --shadow: 0 18px 52px rgba(33, 39, 46, 0.10);
+            --shadow-soft: 0 10px 28px rgba(33, 39, 46, 0.08);
+        }
 
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        * {
+            box-sizing: border-box;
+        }
 
-    <!--font-awasome-->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.min.css">
+        html {
+            scroll-behavior: smooth;
+        }
 
+        body {
+            margin: 0;
+            min-height: 100vh;
+            overflow-x: hidden;
+            color: var(--text);
+            font-family: "Inter", Arial, sans-serif;
+            line-height: 1.75;
+            background:
+                radial-gradient(circle at 14% 8%, rgba(122, 98, 69, 0.08), transparent 28%),
+                radial-gradient(circle at 88% 4%, rgba(52, 74, 95, 0.08), transparent 30%),
+                linear-gradient(180deg, var(--page-bg) 0%, var(--page-bg-2) 52%, var(--page-bg) 100%);
+        }
 
-    <!--custom css-->
-    <link href="css/research.css" rel="stylesheet" type="text/css">
+        a {
+            color: inherit;
+            text-decoration: none;
+            transition: all 0.28s ease;
+        }
 
-    <!-- jQuery library -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        a:hover {
+            color: inherit;
+            text-decoration: none;
+        }
 
-    <!-- Popper JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+        .container {
+            max-width: 1180px;
+        }
 
-    <!-- Latest compiled JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+        /* Hero banner: matched to publications page */
+        .banner-blog {
+            position: relative;
+            min-height: 405px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 88px 24px 110px;
+            isolation: isolate;
+            overflow: hidden;
+            background:
+                linear-gradient(135deg, rgba(31, 42, 54, 0.90), rgba(48, 57, 69, 0.82)),
+                url("images/banner-bg.jpg") center center / cover no-repeat;
+        }
 
-    <!--headline js-->
-    <script src="js/animated-headline.js"></script>
+        .banner-blog::before,
+        .banner-blog::after {
+            content: "";
+            position: absolute;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: -1;
+        }
 
+        .banner-blog::before {
+            width: 430px;
+            height: 430px;
+            left: -120px;
+            top: -150px;
+            background: radial-gradient(circle, rgba(198, 182, 153, 0.18), transparent 70%);
+        }
+
+        .banner-blog::after {
+            width: 520px;
+            height: 520px;
+            right: -180px;
+            bottom: -230px;
+            background: radial-gradient(circle, rgba(215, 207, 192, 0.12), transparent 70%);
+        }
+
+        .banner-caption {
+            width: min(900px, 100%);
+            padding: 46px 34px;
+            border: 1px solid rgba(244, 239, 229, 0.22);
+            border-radius: 34px;
+            background: rgba(25, 33, 43, 0.40);
+            box-shadow: 0 24px 72px rgba(0, 0, 0, 0.22);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .banner-caption h1 {
+            margin: 0 0 18px;
+            color: #f8f4eb;
+            font-family: "Playfair Display", Georgia, serif;
+            font-size: clamp(3rem, 7vw, 5.6rem);
+            line-height: 1.04;
+            letter-spacing: -0.03em;
+            font-weight: 900;
+            text-shadow: none;
+        }
+
+        .bread-crumb {
+            display: inline-flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+            margin-top: 0 !important;
+            padding: 11px 18px;
+            border-radius: 999px;
+            border: 1px solid rgba(244, 239, 229, 0.22);
+            background: rgba(255, 250, 240, 0.08);
+            color: rgba(248, 244, 235, 0.82);
+            font-size: 0.95rem;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+        }
+
+        .bread-crumb a {
+            color: #f8f4eb;
+        }
+
+        .bread-crumb a + a::before {
+            content: "•";
+            display: inline-block;
+            margin-right: 12px;
+            color: rgba(231, 219, 198, 0.90);
+        }
+
+        .bread-crumb a:hover {
+            color: #efe2ca;
+            transform: translateY(-1px);
+        }
+
+        /* Research body */
+        .research {
+            position: relative;
+            z-index: 2;
+            margin-top: -56px;
+            padding: 0 0 100px;
+        }
+
+        .research .container {
+            padding: 34px;
+            border: 1px solid var(--border);
+            border-radius: 40px;
+            background: rgba(255, 252, 246, 0.78);
+            box-shadow: var(--shadow);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+
+        .research .row {
+            position: relative;
+            align-items: center;
+            margin-left: 0;
+            margin-right: 0;
+            padding: 34px;
+            border: 1px solid rgba(49, 58, 70, 0.14);
+            border-radius: 30px;
+            background: rgba(255, 252, 246, 0.98);
+            box-shadow: var(--shadow-soft);
+            overflow: hidden;
+            transition:
+                transform 0.3s ease,
+                border-color 0.3s ease,
+                box-shadow 0.3s ease,
+                background 0.3s ease;
+        }
+
+        .research .row::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent), var(--accent-2), var(--accent-3));
+            opacity: 0.84;
+        }
+
+        .research .row:hover {
+            transform: translateY(-4px);
+            border-color: rgba(52, 74, 95, 0.28);
+            background: #fffdf8;
+            box-shadow: 0 20px 44px rgba(33, 39, 46, 0.12);
+        }
+
+        .research hr {
+            margin: 22px 0;
+            border: 0;
+            height: 1px;
+            background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(52, 74, 95, 0.18),
+                rgba(122, 98, 69, 0.18),
+                transparent
+            );
+        }
+
+        .research .col-lg-12,
+        .research .col-lg-5,
+        .research .col-lg-7 {
+            position: relative;
+            z-index: 1;
+        }
+
+        .content-title {
+            margin: 0 0 28px;
+            color: #25313e;
+            font-family: "Playfair Display", Georgia, serif;
+            font-size: clamp(1.85rem, 2.4vw, 1.65rem);
+            line-height: 1.2;
+            letter-spacing: -0.025em;
+            font-weight: 800;
+        }
+
+        .img-fluid {
+            display: block;
+            width: 100%;
+            min-height: 300px;
+            max-height: 430px;
+            object-fit: cover;
+            border-radius: 24px;
+            border: 1px solid rgba(49, 58, 70, 0.16);
+            background: rgba(255, 252, 246, 0.90);
+            box-shadow: 0 16px 38px rgba(33, 39, 46, 0.12);
+            transition: transform 0.45s ease, box-shadow 0.45s ease;
+        }
+
+        .research .row:hover .img-fluid {
+            transform: scale(1.015);
+            box-shadow: 0 20px 44px rgba(33, 39, 46, 0.15);
+        }
+
+        .content-details {
+            padding-left: 14px;
+        }
+
+        .content-text {
+            margin: 0;
+            color: #404b57;
+            font-size: 1.03rem;
+            line-height: 1.88;
+            letter-spacing: 0.002em;
+        }
+
+        .content-text a {
+            color: #344a5f;
+            font-weight: 700;
+            border-bottom: 1px solid rgba(52, 74, 95, 0.28);
+        }
+
+        .content-text a:hover {
+            color: #7a6245;
+            border-bottom-color: rgba(122, 98, 69, 0.48);
+        }
+
+        /* Slight nuance for the first research section */
+        .research .row:first-of-type {
+            padding-top: 38px;
+            padding-bottom: 38px;
+            border-color: rgba(122, 98, 69, 0.18);
+            background:
+                linear-gradient(135deg, rgba(122, 98, 69, 0.055), rgba(52, 74, 95, 0.028)),
+                rgba(255, 252, 246, 0.99);
+        }
+
+        .research .row:first-of-type .content-title {
+            font-size: clamp(2rem, 3.7vw, 2.85rem);
+        }
+
+        /* Responsive refinements */
+        @media (max-width: 991px) {
+            .banner-blog {
+                min-height: 380px;
+                padding: 74px 18px 96px;
+            }
+
+            .banner-caption {
+                padding: 36px 24px;
+                border-radius: 28px;
+            }
+
+            .research {
+                margin-top: -42px;
+                padding-bottom: 78px;
+            }
+
+            .research .container {
+                padding: 24px;
+                border-radius: 32px;
+            }
+
+            .research .row {
+                padding: 24px;
+                border-radius: 26px;
+            }
+
+            .content-title {
+                margin-bottom: 22px;
+            }
+
+            .img-fluid {
+                min-height: auto;
+                max-height: none;
+                margin-bottom: 26px;
+            }
+
+            .content-details {
+                padding-left: 0;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .banner-blog {
+                min-height: 320px;
+            }
+
+            .banner-caption h1 {
+                font-size: clamp(2.7rem, 13vw, 4rem);
+            }
+
+            .bread-crumb {
+                width: 100%;
+                gap: 8px;
+                font-size: 0.88rem;
+            }
+
+            .research {
+                padding-bottom: 70px;
+            }
+
+            .research .container {
+                padding: 16px;
+                border-radius: 26px;
+            }
+
+            .research .row {
+                padding: 20px 18px;
+                border-radius: 22px;
+            }
+
+            .research hr {
+                margin: 16px 0;
+            }
+
+            .content-title {
+                font-size: 1.72rem;
+                line-height: 1.28;
+                margin-bottom: 20px;
+            }
+
+            .research .row:first-of-type .content-title {
+                font-size: 1.85rem;
+            }
+
+            .content-text {
+                font-size: 0.98rem;
+                line-height: 1.82;
+            }
+
+            .img-fluid {
+                border-radius: 18px;
+                margin-bottom: 22px;
+            }
+        }
+    
+
+        /* Alternating editorial image layout with text wrapping */
+        .research .row {
+            display: block;
+        }
+
+        .research .row::after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+        .research .col-lg-12 {
+            width: 100%;
+            max-width: 100%;
+            flex: 0 0 100%;
+        }
+
+        .content-details {
+            padding-left: 0;
+        }
+
+        .research-float-image {
+            width: min(42%, 430px);
+            margin-top: 2px;
+            margin-bottom: 18px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .research-image-left {
+            float: left;
+            margin-right: 30px;
+        }
+
+        .research-image-right {
+            float: right;
+            margin-left: 30px;
+        }
+
+        .research-float-image .img-fluid {
+            width: 100%;
+            min-height: 260px;
+            max-height: 390px;
+            margin-bottom: 0;
+            object-fit: cover;
+        }
+
+        .research .row:hover .research-float-image .img-fluid {
+            transform: scale(1.015);
+            box-shadow: 0 20px 44px rgba(33, 39, 46, 0.15);
+        }
+
+        .content-text {
+            text-align: left;
+        }
+
+        @media (max-width: 991px) {
+            .research-float-image,
+            .research-image-left,
+            .research-image-right {
+                float: none;
+                width: 100%;
+                margin-left: 0;
+                margin-right: 0;
+                margin-bottom: 24px;
+            }
+
+            .research-float-image .img-fluid {
+                min-height: auto;
+                max-height: none;
+            }
+        }
+
+</style>
 </head>
-
-
-
-
-
 <body>
-
-
-
-    <section class="banner-blog">
-        <!--Banner Caption-->
-        <div class="banner-caption text-center">
-            <h1>Research</h1>
-            <div class="bread-crumb mt-10">
-                <a href="index.html">Home</a>
-                <a href="research.html">Research</a>
-                <!--                <a href="#">Single</a>-->
-            </div>
-        </div>
-    </section>
-
-
-
-
-
-
-
-    <!----------------------research box----------------------->
-    <section class="research">
-        <div class="container">
+<section class="banner-blog">
+<!--Banner Caption-->
+<div class="banner-caption text-center">
+<h1>Research</h1>
+<div class="bread-crumb mt-10">
+<a href="index.html">Home</a>
+<a href="research.html">Research</a>
+<!--                <a href="#">Single</a>-->
+</div>
+</div>
+</section>
+<!----------------------research box----------------------->
+<section class="research">
+<div class="container">
 <div class="row">
-                <div class="col-lg-12">
-                    <h3 class="content-title">Exoplanet Atmospheres</h3>
-                </div>
-                <div class="col-lg-5">
-                    <img class="img-fluid" src="images/astrophysics-1.jpg">
-                </div>
-                <div class="col-lg-7">
-                    <div class="content-details">
+<div class="col-lg-12">
+<h3 class="content-title">Exoplanet Atmospheres</h3>
+</div>
 
-                        <p class="content-text">
+<div class="col-lg-12">
+<div class="content-details">
+<div class="research-float-image research-image-left"><img class="img-fluid" src="images/astrophysics-1.jpg"/></div><p class="content-text">
                             
-                            Exoplanets are planets that orbit stars beyond our Sun, and they have revolutionized our ability to understanding how planets form, evolve, and become habitable. Because atmospheres are often the only directly observable part of an exoplanet, they provide a powerful gateway to a planet’s chemistry, climate, and energy budget, as well as the fingerprints of its interior, evolution, and formation history.
+                            Exoplanets are planets that orbit stars other than our Sun, and they have revolutionized our ability to understanding how planets form, evolve, and become habitable. Because atmospheres are often the only directly observable part of an exoplanet, they provide a powerful gateway to a planet’s chemistry, climate, and energy budget, as well as the fingerprints of its interior, evolution, and formation history.
 
 My research turns high-precision exoplanet spectra into physical understanding by bridging theory and observations across a wide range of substellar worlds, from brown dwarfs and giant exoplanets to sub-Neptunes and, ultimately, terrestrial planets. I build physics-driven atmosphere, climate, and interior modeling frameworks that predict transmission, emission, and reflected-light signals, and I use data from JWST and HST, along with premier ground-based facilities (Gemini, Keck, Subaru, and more), to test and constrain these models.
 
@@ -83,157 +515,117 @@ A core theme of my work is connecting what we observe in an atmosphere to the hi
 My goal is to help move the field from detection to diagnosis: transforming exoplanets from catalog entries into dynamic, physically understood worlds, and laying the theoretical foundation needed to interpret the coming era of atmospheric surveys with JWST, ARIEL, the ELTs, and future reflected-light missions.
 
 If you also find yourself wondering about the nature of these faraway worlds, their atmospheres, and what they can teach us, I would love to connect!</p>
-                    </div>
-                </div>
-            </div>
+</div>
+</div>
+</div>
+<hr/>
+<div class="row">
+<div class="col-lg-12">
+<h3 class="content-title">Cloudy Mornings and Clear Evenings on giant Exoplanet WASP-94A b</h3>
+</div>
 
-        
-          <hr>
-            <div class="row">
-                <div class="col-lg-12">
-                    <h3 class="content-title">Cloudy Mornings and Clear Evenings on giant Exoplanet WASP-94A b</h3>
-                </div>
-                <div class="col-lg-5">
-                    <img class="img-fluid" src="images/WASP94Ab_arxiv.jpeg">
-                </div>
-                <div class="col-lg-7">
-                    <div class="content-details">
+<div class="col-lg-12">
+<div class="content-details">
+<div class="research-float-image research-image-right"><img class="img-fluid" src="images/WASP94Ab_arxiv.jpeg"/></div><p class="content-text"> WASP-94A b is a near-Saturn-mass planet with a Jupiter-sized (or larger) radius. Using JWST/NIRISS transmission spectroscopy, we discovered a dramatic morning-evening terminator asymmetry: the morning limb is completely aerosol-dominated and shows essentially no molecular absorption, while the evening limb is comparatively clear and exhibits strong water-vapor features. While earlier work has reported terminator differences driven by chemistry and temperature (e.g., Espinoza et al. 2024; Murphy et al. 2024; Ehrenreich et al. 2020), this is the first direct evidence that the aerosol properties themselves differ between the two limbs, pointing to condensed clouds, not photochemical hazes, as the dominant aerosol source in this atmosphere. We infer that cloud particles are lofted to unusually high altitudes on the cooler morning side but evaporate at the hotter evening terminator, enabling us to constrain the planet's cloud transport pattern, limb-to-limb temperature gradients, and key cloud-circulation timescales. This inhomogeneous cloud coverage also produces large retrieval biases, shifting inferred chemical abundances by &gt;4σ, showing that ignoring limb asymmetries can lead to misleading atmospheric compositions. The WASP-94A b study is under review; the preprint is available as <a href="https://ui.adsabs.harvard.edu/abs/2025arXiv250510910M/abstract">Mukherjee et al. (2025b)</a>. In a follow-up study, we show this behavior is common (though not universal) across JWST hot-Jupiter transmission spectra: morning limbs tend to look more muted by aerosols, while evening limbs are often clearer, making WASP-94A b a benchmark for this cloudy/clear pattern (<a href="https://ui.adsabs.harvard.edu/abs/2025ApJ...989L..17F/abstract">Fu, Mukherjee et al. 2025, ApJL</a>). Finally, these results matter beyond hot Jupiters: for sub-Neptunes and terrestrial planets, partial cloud coverage can obscure spectral features, bias abundance inferences, and potentially complicate biosignature searches in systems like TRAPPIST-1 and K2-18 b </p>
+</div>
+</div>
+</div>
+<hr/>
+<div class="row">
+<div class="col-lg-12">
+<h3 class="content-title">Planets? Brown Dwarfs? or Stars? How companion stars impact the radius evolution of transiting brown dwarfs?</h3>
+</div>
 
-                        <p class="content-text"> <a> WASP-94A b is a near-Saturn-mass planet with a Jupiter-sized (or larger) radius. Using JWST/NIRISS transmission spectroscopy, we discovered a dramatic morning-evening terminator asymmetry: the morning limb is completely aerosol-dominated and shows essentially no molecular absorption, while the evening limb is comparatively clear and exhibits strong water-vapor features. While earlier work has reported terminator differences driven by chemistry and temperature (e.g., Espinoza et al. 2024; Murphy et al. 2024; Ehrenreich et al. 2020), this is the first direct evidence that the aerosol properties themselves differ between the two limbs, pointing to condensed clouds, not photochemical hazes, as the dominant aerosol source in this atmosphere. We infer that cloud particles are lofted to unusually high altitudes on the cooler morning side but evaporate at the hotter evening terminator, enabling us to constrain the planet's cloud transport pattern, limb-to-limb temperature gradients, and key cloud-circulation timescales. This inhomogeneous cloud coverage also produces large retrieval biases, shifting inferred chemical abundances by >4σ, showing that ignoring limb asymmetries can lead to misleading atmospheric compositions. The WASP-94A b study is under review; the preprint is available as <a href="https://ui.adsabs.harvard.edu/abs/2025arXiv250510910M/abstract">Mukherjee et al. (2025b)</a>. In a follow-up study, we show this behavior is common (though not universal) across JWST hot-Jupiter transmission spectra: morning limbs tend to look more muted by aerosols, while evening limbs are often clearer, making WASP-94A b a benchmark for this cloudy/clear pattern (<a href="https://ui.adsabs.harvard.edu/abs/2025ApJ...989L..17F/abstract">Fu, Mukherjee et al. 2025, ApJL</a>). Finally, these results matter beyond hot Jupiters: for sub-Neptunes and terrestrial planets, partial cloud coverage can obscure spectral features, bias abundance inferences, and potentially complicate biosignature searches in systems like TRAPPIST-1 and K2-18 b </a></p>
-                    </div>
-                </div>
-            </div>
-           
-          <hr>
-            <div class="row">
-                <div class="col-lg-12">
-                    <h3 class="content-title">Planets? Brown Dwarfs? or Stars? How companion stars impact the radius evolution of transiting brown dwarfs</h3>
-                </div>
-                <div class="col-lg-5">
-                    <img class="img-fluid" src="images/transitingBD.jpeg">
-                </div>
-                <div class="col-lg-7">
-                    <div class="content-details">
-
-                        <p class="content-text"> <a> Our paper (<a href="https://ui.adsabs.harvard.edu/abs/2025arXiv251208249M/abstract">Mukherjee et al. (2026)</a>) uses the growing sample of transiting brown dwarfs, objects with directly measured masses and radii spanning 12.9-89 MJ and nearly four orders of magnitude in incident stellar flux, to test how strongly host stars reshape substellar evolution. 
-                              By coupling radiative-convective atmosphere models to interior/evolution calculations, the authors find that irradiation can slow cooling and inflate radii, with strong effects emerging around log10(F) > 9 (cgs) or Teq > 1450 K, and the inflation is largely mass-independent (outside brief deuterium-burning phases) and weakens with age. 
+<div class="col-lg-12">
+<div class="content-details">
+<div class="research-float-image research-image-left"><img class="img-fluid" src="images/transitingBD.jpeg"/></div><p class="content-text"> Our paper (<a href="https://ui.adsabs.harvard.edu/abs/2025arXiv251208249M/abstract">Mukherjee et al. (2026)</a>) uses the growing sample of transiting brown dwarfs, objects with directly measured masses and radii spanning 12.9-89 MJ and nearly four orders of magnitude in incident stellar flux, to test how strongly host stars reshape substellar evolution. 
+                              By coupling radiative-convective atmosphere models to interior/evolution calculations, the authors find that irradiation can slow cooling and inflate radii, with strong effects emerging around log10(F) &gt; 9 (cgs) or Teq &gt; 1450 K, and the inflation is largely mass-independent (outside brief deuterium-burning phases) and weakens with age. 
                              The most conceptually striking result is that irradiation from companion stars also shifts the nuclear "dividing lines" themselves: both the deuterium-burning minimum mass (DBMM), which is often used as a planet/brown-dwarf boundary, and the hydrogen-burning minimum mass (HBMM), the traditional brown-dwarf/star boundary, decrease with increasing incident flux. 
-                             Across the range from effectively isolated objects to strongly irradiated companions (log10(F) > 10; Teq > 2570 K), the models predict drops of ~16% (DBMM) and ~13% (HBMM), implying that close companion stars can strongly sculpt the boundaries between planets and brown dwarfs, and between brown dwarfs and stars, rather than those boundaries being universal. 
-                             Overall, our irradiated evolutionary models match the observed radii of the 46-object transiting BD sample better than non-irradiated evolutionary models.   </a></p>
-                    </div>
-                </div>
-            </div>  
+                             Across the range from effectively isolated objects to strongly irradiated companions (log10(F) &gt; 10; Teq &gt; 2570 K), the models predict drops of ~16% (DBMM) and ~13% (HBMM), implying that close companion stars can strongly sculpt the boundaries between planets and brown dwarfs, and between brown dwarfs and stars, rather than those boundaries being universal. 
+                             Overall, our irradiated evolutionary models match the observed radii of the 46-object transiting BD sample better than non-irradiated evolutionary models. </p>
+</div>
+</div>
+</div>
+<hr/>
+<div class="row">
+<div class="col-lg-12">
+<h3 class="content-title">JWST's view of GJ 436b's Atmosphere: a Neptune-like exoplanet</h3>
+</div>
 
-          <hr>
-            <div class="row">
-                <div class="col-lg-12">
-                    <h3 class="content-title">JWST's view of GJ 436b's Atmosphere: a Neptune-like exoplanet</h3>
-                </div>
-                <div class="col-lg-5">
-                    <img class="img-fluid" src="images/gj436b_figs.jpeg">
-                </div>
-                <div class="col-lg-7">
-                    <div class="content-details">
+<div class="col-lg-12">
+<div class="content-details">
+<div class="research-float-image research-image-right"><img class="img-fluid" src="images/gj436b_figs.jpeg"/></div><p class="content-text"> GJ 436b is Neptune-like in mass and radius, but far warmer (~700 K). Earlier observations (e.g., with Spitzer) suggested an unusual chemistry—weak methane and enhanced carbon monoxide—often interpreted as evidence for disequilibrium processes driven by strong mixing and possibly tidal heating from the planet’s eccentric orbit. To test this, I led a JWST study with the MANATEE collaboration, measuring the planet’s dayside thermal emission for the first time across 2.4–12 μm using eclipse spectroscopy. Surprisingly, the JWST emission spectrum is strongly inconsistent with the earlier Spitzer 3.6 and 4.5 μm measurements (top-left figure). In the JWST data we find weak evidence for CO₂ (bottom-left figure) and place stringent upper limits on the planet’s albedo. Our modeling shows that the spectrum does not require an unusually tidally heated interior: it can be explained with a nominal internal heat under cloud-free assumptions, and it also favors an atmosphere that is highly metal-enriched, with the dayside likely blanketed by thick aerosols. Additional JWST observations—especially transmission spectroscopy—will be key to tightening constraints on the composition and cloud properties. The published paper is <a href="https://ui.adsabs.harvard.edu/abs/2025ApJ...982L..39M/abstract">Mukherjee et al. (2025, ApJL)</a>. </p>
+</div>
+</div>
+</div>
+<hr/>
+<div class="row">
+<div class="col-lg-12">
+<h3 class="content-title">Disequilibrium Chemistry in Transiting Exoplanets: a Family Potrait of Sulfur Molecules</h3>
+</div>
 
-                        <p class="content-text"> <a> GJ 436b is Neptune-like in mass and radius, but far warmer (~700 K). Earlier observations (e.g., with Spitzer) suggested an unusual chemistry—weak methane and enhanced carbon monoxide—often interpreted as evidence for disequilibrium processes driven by strong mixing and possibly tidal heating from the planet’s eccentric orbit. To test this, I led a JWST study with the MANATEE collaboration, measuring the planet’s dayside thermal emission for the first time across 2.4–12 μm using eclipse spectroscopy. Surprisingly, the JWST emission spectrum is strongly inconsistent with the earlier Spitzer 3.6 and 4.5 μm measurements (top-left figure). In the JWST data we find weak evidence for CO₂ (bottom-left figure) and place stringent upper limits on the planet’s albedo. Our modeling shows that the spectrum does not require an unusually tidally heated interior: it can be explained with a nominal internal heat under cloud-free assumptions, and it also favors an atmosphere that is highly metal-enriched, with the dayside likely blanketed by thick aerosols. Additional JWST observations—especially transmission spectroscopy—will be key to tightening constraints on the composition and cloud properties. The published paper is <a href="https://ui.adsabs.harvard.edu/abs/2025ApJ...982L..39M/abstract">Mukherjee et al. (2025, ApJL)</a>.  </a></p>
-                    </div>
-                </div>
-            </div> 
+<div class="col-lg-12">
+<div class="content-details">
+<div class="research-float-image research-image-left"><img class="img-fluid" src="images/photochem_figs.jpeg"/></div><p class="content-text"> The observable chemistry of transiting exoplanets is often shaped as much by atmospheric dynamics, photochemistry, and internal heat flux as by bulk composition. In this work, we performed a broad theoretical survey across a wide parameter space—spanning gas giants to sub-Neptunes and hot to warm planets—to map how these processes reshape key molecules such as CH₄, CO, and CO₂. We find strong, planet-dependent trends: a molecule that cleanly traces vertical mixing for one class of planets can become almost insensitive to mixing in another, and similar “regime changes” appear for sensitivity to internal heat. A major highlight is sulfur chemistry. Motivated by recent interest in photochemical SO₂ on irradiated giants, we show that the dominant sulfur carriers shift with temperature: SO₂ is most prominent for warm–hot planets, while cooler planets favor photochemical production of CS₂ and CS (left plot). Across all temperatures, atomic sulfur remains a consistently dominant sulfur species near the photosphere. For the full set of predicted chemical trends, see <a href="https://ui.adsabs.harvard.edu/abs/2024arXiv241017169M/abstract">Mukherjee et al. (2025, ApJ)</a>. Efforts to test these predictions with JWST across a diverse sample are underway, with initial observed population trends reported in <a href="https://ui.adsabs.harvard.edu/abs/2025arXiv250102081F/abstract">Fu et al. (2025, ApJ)</a>. </p>
+</div>
+</div>
+</div>
+<hr/>
+<div class="row">
+<div class="col-lg-12">
+<h3 class="content-title">Disequilibrium Chemistry in Directly Imaged Exoplanets and Brown Dwarfs: the Sonora Elf Owl model grid</h3>
+</div>
 
-
-            <hr>
-            <div class="row">
-                <div class="col-lg-12">
-                    <h3 class="content-title">Disequilibrium Chemistry in Transiting Exoplanets: a Family Potrait of Sulfur Molecules</h3>
-                </div>
-                <div class="col-lg-5">
-                    <img class="img-fluid" src="images/photochem_figs.jpeg">
-                </div>
-                <div class="col-lg-7">
-                    <div class="content-details">
-
-                        <p class="content-text"> <a> The observable chemistry of transiting exoplanets is often shaped as much by atmospheric dynamics, photochemistry, and internal heat flux as by bulk composition. In this work, we performed a broad theoretical survey across a wide parameter space—spanning gas giants to sub-Neptunes and hot to warm planets—to map how these processes reshape key molecules such as CH₄, CO, and CO₂. We find strong, planet-dependent trends: a molecule that cleanly traces vertical mixing for one class of planets can become almost insensitive to mixing in another, and similar “regime changes” appear for sensitivity to internal heat. A major highlight is sulfur chemistry. Motivated by recent interest in photochemical SO₂ on irradiated giants, we show that the dominant sulfur carriers shift with temperature: SO₂ is most prominent for warm–hot planets, while cooler planets favor photochemical production of CS₂ and CS (left plot). Across all temperatures, atomic sulfur remains a consistently dominant sulfur species near the photosphere. For the full set of predicted chemical trends, see <a href="https://ui.adsabs.harvard.edu/abs/2024arXiv241017169M/abstract">Mukherjee et al. (2025, ApJ)</a>. Efforts to test these predictions with JWST across a diverse sample are underway, with initial observed population trends reported in <a href="https://ui.adsabs.harvard.edu/abs/2025arXiv250102081F/abstract">Fu et al. (2025, ApJ)</a>. </a></p>
-                    </div>
-                </div>
-            </div> 
-
-
-            <hr>
-            <div class="row">
-                <div class="col-lg-12">
-                    <h3 class="content-title">Disequilibrium Chemistry in Directly Imaged Exoplanets and Brown Dwarfs: the Sonora Elf Owl model grid</h3>
-                </div>
-                <div class="col-lg-5">
-                    <img class="img-fluid" src="images/elfowl.jpeg">
-                </div>
-                <div class="col-lg-7">
-                    <div class="content-details">
-
-                        <p class="content-text"> <a> The chemical composition of directly imaged exoplanets and brown dwarfs can also be significantly altered due to highly uncertain atmospheric processes like atmospheric dynamics.
+<div class="col-lg-12">
+<div class="content-details">
+<div class="research-float-image research-image-right"><img class="img-fluid" src="images/elfowl.jpeg"/></div><p class="content-text">  The chemical composition of directly imaged exoplanets and brown dwarfs can also be significantly altered due to highly uncertain atmospheric processes like atmospheric dynamics.
                             In this work, we have developed a grid of radiative-convective models with self-consistent treatment of vertical mixing induced disequilibrium chemistry across a large range of object temperature, gravity, metallicity, and elemental abundance ratios. We call this the Sonora Elf Owl grid of models.
                             We have shown that processes like vertical mixing and parameters like object metallicity have degenerate effects on various chunks of the observable spectrum of these planets and brown dwarfs (top left panels). 
                             Atmospheric dynamics is one of the least understood processes in the atmosphere of exoplanets and brown dwarfs. The parameter describing it is uncertain by 7-8 orders of magnitude. We use our theoretical model grid to constrain this highly uncertain parameter for a sample of field brown dwarfs with different temperatures.
                             We use archival observational spectrum from Spitzer and AKARI telescopes to derive constraints on the strength of vertical mixing in their atmosphere. The bottom left figure shows our constraints. Surprisingly, we find that the strength of dynamics in their atmospheres are much weaker than expected from convection.
                             With more self-consistent forward model grids, we show that this is likely because we are probing the strength of vertical mixing in sandwiched radiative regions in the deep atmosphere of these objects instead of convective regions.
                             This is consistent with the theoretical predictions from my previous work in <a href="https://ui.adsabs.harvard.edu/abs/2022ApJ...938..107M/abstract"> Mukherjee et al. (2023, ApJ)</a> and the findings of <a href="https://iopscience.iop.org/article/10.3847/1538-3881/ab9114"> Miles et al. (2020, ApJ)</a>.
-                            See the full published paper <a href="https://iopscience.iop.org/article/10.3847/1538-4357/ad18c2"> Mukherjee et al. (2024, ApJ)</a>. The models can be found in <a href="https://zenodo.org/records/10385987"> L-type</a>,<a href="https://zenodo.org/records/10385987"> Y-type</a>, and <a href="https://zenodo.org/records/10385821"> T-type</a> . </a></p>
-                    </div>
-                </div>
-            </div> 
+                            See the full published paper <a href="https://iopscience.iop.org/article/10.3847/1538-4357/ad18c2"> Mukherjee et al. (2024, ApJ)</a>. The models can be found in <a href="https://zenodo.org/records/10385987"> L-type</a>,<a href="https://zenodo.org/records/10385987"> Y-type</a>, and <a href="https://zenodo.org/records/10385821"> T-type</a> . </p>
+</div>
+</div>
+</div>
+<hr/>
+<div class="row">
+<div class="col-lg-12">
+<h3 class="content-title">understanding clouds with Polarization</h3>
+</div>
 
-            <hr>
+<div class="col-lg-12">
+<div class="content-details">
+<div class="research-float-image research-image-left"><img class="img-fluid" src="images/pol.jpeg"/></div><p class="content-text"> In <a href="https://ui.adsabs.harvard.edu/abs/2021ApJ...923..113M/abstract"> Mukherjee et al. (2021)</a>, we showed that near-infrared polarimetry can help constrain 3D cloud structures in brown dwarfs by coupling general circulation models (GCMs) of the nearby binary Luhman 16 A and B with the 3D vector Monte-Carlo radiative-transfer code ARTES to predict disk-integrated polarization signals. The models reproduce the measured H-band linear polarization, yielding 0.038% for Luhman 16 A (vs. 0.031% ± 0.004%) and 0.011% for Luhman 16 B (vs. 0.010% ± 0.004%). The polarization strength is highly sensitive to cloud particle sizes, pointing to typical particles of ~0.5–1 μm for Luhman 16 A and ~5 μm for Luhman 16 B. Finally, we tested the common “cloud band” interpretation and found it systematically overpredicts polarization because it misses smaller-scale cloudy/clear vortices that reduce the disk-integrated signal, highlighting why fully 3D circulation patterns matter for interpreting polarimetry </p>
+</div>
+</div>
+</div>
+<hr/>
+<div class="row">
+<div class="col-lg-12">
+<h3 class="content-title">understanding clouds from reflected light spectroscopy</h3>
+</div>
 
-            <div class="row">
-                <div class="col-lg-12">
-                    <h3 class="content-title">understanding clouds with Polarization</h3>
-                </div>
-                <div class="col-lg-5">
-                    <img class="img-fluid" src="images/pol.jpeg">
-                </div>
-                <div class="col-lg-7">
-                    <div class="content-details">
+<div class="col-lg-12">
+<div class="content-details">
+<div class="research-float-image research-image-right"><img class="img-fluid" src="images/reflected.002.jpeg"/></div><p class="content-text"> In <a href="https://ui.adsabs.harvard.edu/abs/2021ApJ...910..158M/abstract"> Mukherjee, Batalha &amp; Marley (2021) </a> we tackled a key question for future reflected-light direct-imaging spectra: how much cloud-model complexity is needed to retrieve reliable atmospheric compositions? We generated mock 0.3–1 μm reflection spectra for three cool giant-planet targets spanning ~135–533 K (ε Eri b, 47 UMa b, and HD 62509 b), and performed Bayesian retrievals of major molecules (CH₄, NH₃, H₂O) and cloud scattering properties using four increasingly flexible cloud parameterizations. The main result is that cloud assumptions can strongly bias what you infer: overly simple “box” cloud decks tend to systematically overestimate molecular abundances, so at minimum an altitude-dependent (e.g., exponential) cloud profile is needed for robust composition inferences. We find that adding extra complexity (such as explicitly two-layer scattering behavior) is not generally favored for the cloud regimes explored here, and can even perform worse than simpler models. A second cloud deck is only required when a major molecular-opacity region falls between two scattering layers; otherwise a single deck is typically sufficient. Finally, we show that even low-quality reflected-light spectra can still help place clouds relative to Rayleigh and molecular optical-depth levels (giving a rough handle on atmospheric structure), but surface gravity remains difficult to pin down, staying uncertain at roughly the ±50% level. </p>
+</div>
+</div>
+</div>
+<hr/>
+<div class="row">
+<div class="col-lg-12">
+<h3 class="content-title">Blazars</h3>
+</div>
 
-                        <p class="content-text"> In <a href="https://ui.adsabs.harvard.edu/abs/2021ApJ...923..113M/abstract"> Mukherjee et al. (2021)</a>, we showed that near-infrared polarimetry can help constrain 3D cloud structures in brown dwarfs by coupling general circulation models (GCMs) of the nearby binary Luhman 16 A and B with the 3D vector Monte-Carlo radiative-transfer code ARTES to predict disk-integrated polarization signals. The models reproduce the measured H-band linear polarization, yielding 0.038% for Luhman 16 A (vs. 0.031% ± 0.004%) and 0.011% for Luhman 16 B (vs. 0.010% ± 0.004%). The polarization strength is highly sensitive to cloud particle sizes, pointing to typical particles of ~0.5–1 μm for Luhman 16 A and ~5 μm for Luhman 16 B. Finally, we tested the common “cloud band” interpretation and found it systematically overpredicts polarization because it misses smaller-scale cloudy/clear vortices that reduce the disk-integrated signal, highlighting why fully 3D circulation patterns matter for interpreting polarimetry </a></p>
-                    </div>
-                </div>
-            </div>
-
-
-            <hr>
-
-            <div class="row">
-                <div class="col-lg-12">
-                    <h3 class="content-title">understanding clouds from reflected light spectroscopy</h3>
-                </div>
-                <div class="col-lg-5">
-                    <img class="img-fluid" src="images/reflected.002.jpeg">
-                </div>
-                <div class="col-lg-7">
-                    <div class="content-details">
-
-                        <p class="content-text"> In <a href="https://ui.adsabs.harvard.edu/abs/2021ApJ...910..158M/abstract"> Mukherjee, Batalha & Marley (2021) </a> we tackled a key question for future reflected-light direct-imaging spectra: how much cloud-model complexity is needed to retrieve reliable atmospheric compositions? We generated mock 0.3–1 μm reflection spectra for three cool giant-planet targets spanning ~135–533 K (ε Eri b, 47 UMa b, and HD 62509 b), and performed Bayesian retrievals of major molecules (CH₄, NH₃, H₂O) and cloud scattering properties using four increasingly flexible cloud parameterizations. The main result is that cloud assumptions can strongly bias what you infer: overly simple “box” cloud decks tend to systematically overestimate molecular abundances, so at minimum an altitude-dependent (e.g., exponential) cloud profile is needed for robust composition inferences. We find that adding extra complexity (such as explicitly two-layer scattering behavior) is not generally favored for the cloud regimes explored here, and can even perform worse than simpler models. A second cloud deck is only required when a major molecular-opacity region falls between two scattering layers; otherwise a single deck is typically sufficient. Finally, we show that even low-quality reflected-light spectra can still help place clouds relative to Rayleigh and molecular optical-depth levels (giving a rough handle on atmospheric structure), but surface gravity remains difficult to pin down, staying uncertain at roughly the ±50% level. </a></p>
-                    </div>
-                </div>
-            </div>
-            
-            <hr>
-
-            <div class="row">
-                <div class="col-lg-12">
-                    <h3 class="content-title">Blazars</h3>
-                </div>
-                <div class="col-lg-5">
-                    <img class="img-fluid" src="images/1.png">
-                </div>
-                <div class="col-lg-7">
-                    <div class="content-details">
-
-                        <p class="content-text"> Black holes feed on the matter in their surroundings. Infalling matter on the black hole loose their gravitational energy through radiation forming disk like structures called accretion disks. These accretion disks have been spectroscopically inferred in many solar mass black hole and AGN (SMBH) systems. Blazars are black hole systems where the jet outflows from the BH points at a very small angle to our line of sight. Blazars emit across a huge range of wavelengths from radio to very high energy gamma rays. Blazars also show time variability in various timescales - from hours to years. Modeling Spectral energy distribution (SED) of blazars show that the emission in blazars are from ultra-relativistic particles which are traveling at speeds very close to the speed of light. These particles emit radiation through processes like Synchroton and Inverse- Compton radiation. Accretion disks also show variability in a large number of timescales. The origin of these highly relativistic jet outflows are not well understood. Since they originate very close to the central engine and the only source of matter in that region is the matter in the accretion disk, it is thought that the matter around the accretion disk gets accelerated and collimated as a jet through complex processes. If this is so, one might expect to observe certain temporal connection between the variability of accretion disks and jets. <a href="https://arxiv.org/abs/0909.2051"> Chatterjee et al. (2009) </a> and several other studies have observed such connections in Seyferts. Disk variability also is well known to show a characteristic timescale related with black hole mass observed by <a href="https://watermark.silverchair.com/359-4-1469.pdf?token=AQECAHi208BE49Ooan9kkhW_Ercy7Dm3ZL_9Cf3qfKAc485ysgAAAm8wggJrBgkqhkiG9w0BBwagggJcMIICWAIBADCCAlEGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMPL8hp6ybXmzn3o9RAgEQgIICIqOXBmLC-rZAfMgsZpnY__Oeu0n_DSMBNm9Ht_q0eUcSlk34n7m2vvhi74D1Ox1c52vtEMeA7NaFPGwnxqgQeU85ml2YKzxPuiHysYxB3saoYVZ43AqUeOiKyaGKX-9PC33C-kZqRuAlvOEB1abx16uZrj19mjfuuUtRbouxlUR4wpLYGuIDxm5uyDGDyQVGV2Ydr6s9Yv9-MTqtxX5hJzrW8_4-tQa2UN4kuJEfc2-qOHevm_fx5DZpVlrdkOjsY8IW-KCTto1MCC2W1NHNc4SNxc6HLn4s_OqEbpgJHhou2qU7GwyZ0yRIDHUw7fyK8oKAbdhiRTD1OYK2V5J0tDg5K8BvyUUthk2rGG5EVF4cIHt1bQv0GOVJakYRtftqAsmiWEstriOUD-EJWkvmn3MSmlW2TOaAVPKRcYsOYu7uFpq43XnUHQef6Dr6419sjQZvH2iQ6B43weY_6IQ4EgDBMane1tKIzdHGnhf92agQJ_Kxe6jwy1AZTquq9-latkCjWsQPWJQC1IS4j3vnphUPtGtQuJc09e3N0Jp2cEhYgDIFlEO1Bc-BS4d8ndqBvfiolbjrrPo6izElEcac1SpDISX3oJd0h8P2ZspfsspclG6M7lILaJWiw0BSdQNXz1cL_-_GJMwZfsbOsKG-86Q44uLXe9gNJaB4FFgKtWosByx1NtLeXxO8arBpxz4eWW70BFuWZVthRq7apC669P8gIA"> McHardy et al (2005) </a>. Recently, <a href="https://iopscience.iop.org/article/10.3847/2041-8213/aac48a/meta"> Chatterjee et al. (2018) </a> observed a similar characteristic timescale in jet variability as well. This raises a question and the opportunity to investigate the connections between these two timescales. We have performed numerical modeling of emission variability in the jet as well as the disk. We are investigating various scenarios of a disk-jet connection. We have also predicted the nature of Power Spectral Densities of future multi-wavelength jet variabilty observations. Here is our recent publication on the <a href="https://academic.oup.com/mnras/article-abstract/486/2/1672/5420451?redirectedFrom=fulltext"> the disk-jet connection in blazar. </a></p>
-                    </div>
-                </div>
-            </div>
-
-           <!-- <hr>
+<div class="col-lg-12">
+<div class="content-details">
+<div class="research-float-image research-image-left"><img class="img-fluid" src="images/1.png"/></div><p class="content-text"> Black holes feed on the matter in their surroundings. Infalling matter on the black hole loose their gravitational energy through radiation forming disk like structures called accretion disks. These accretion disks have been spectroscopically inferred in many solar mass black hole and AGN (SMBH) systems. Blazars are black hole systems where the jet outflows from the BH points at a very small angle to our line of sight. Blazars emit across a huge range of wavelengths from radio to very high energy gamma rays. Blazars also show time variability in various timescales - from hours to years. Modeling Spectral energy distribution (SED) of blazars show that the emission in blazars are from ultra-relativistic particles which are traveling at speeds very close to the speed of light. These particles emit radiation through processes like Synchroton and Inverse- Compton radiation. Accretion disks also show variability in a large number of timescales. The origin of these highly relativistic jet outflows are not well understood. Since they originate very close to the central engine and the only source of matter in that region is the matter in the accretion disk, it is thought that the matter around the accretion disk gets accelerated and collimated as a jet through complex processes. If this is so, one might expect to observe certain temporal connection between the variability of accretion disks and jets. <a href="https://arxiv.org/abs/0909.2051"> Chatterjee et al. (2009) </a> and several other studies have observed such connections in Seyferts. Disk variability also is well known to show a characteristic timescale related with black hole mass observed by <a href="https://watermark.silverchair.com/359-4-1469.pdf?token=AQECAHi208BE49Ooan9kkhW_Ercy7Dm3ZL_9Cf3qfKAc485ysgAAAm8wggJrBgkqhkiG9w0BBwagggJcMIICWAIBADCCAlEGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMPL8hp6ybXmzn3o9RAgEQgIICIqOXBmLC-rZAfMgsZpnY__Oeu0n_DSMBNm9Ht_q0eUcSlk34n7m2vvhi74D1Ox1c52vtEMeA7NaFPGwnxqgQeU85ml2YKzxPuiHysYxB3saoYVZ43AqUeOiKyaGKX-9PC33C-kZqRuAlvOEB1abx16uZrj19mjfuuUtRbouxlUR4wpLYGuIDxm5uyDGDyQVGV2Ydr6s9Yv9-MTqtxX5hJzrW8_4-tQa2UN4kuJEfc2-qOHevm_fx5DZpVlrdkOjsY8IW-KCTto1MCC2W1NHNc4SNxc6HLn4s_OqEbpgJHhou2qU7GwyZ0yRIDHUw7fyK8oKAbdhiRTD1OYK2V5J0tDg5K8BvyUUthk2rGG5EVF4cIHt1bQv0GOVJakYRtftqAsmiWEstriOUD-EJWkvmn3MSmlW2TOaAVPKRcYsOYu7uFpq43XnUHQef6Dr6419sjQZvH2iQ6B43weY_6IQ4EgDBMane1tKIzdHGnhf92agQJ_Kxe6jwy1AZTquq9-latkCjWsQPWJQC1IS4j3vnphUPtGtQuJc09e3N0Jp2cEhYgDIFlEO1Bc-BS4d8ndqBvfiolbjrrPo6izElEcac1SpDISX3oJd0h8P2ZspfsspclG6M7lILaJWiw0BSdQNXz1cL_-_GJMwZfsbOsKG-86Q44uLXe9gNJaB4FFgKtWosByx1NtLeXxO8arBpxz4eWW70BFuWZVthRq7apC669P8gIA"> McHardy et al (2005) </a>. Recently, <a href="https://iopscience.iop.org/article/10.3847/2041-8213/aac48a/meta"> Chatterjee et al. (2018) </a> observed a similar characteristic timescale in jet variability as well. This raises a question and the opportunity to investigate the connections between these two timescales. We have performed numerical modeling of emission variability in the jet as well as the disk. We are investigating various scenarios of a disk-jet connection. We have also predicted the nature of Power Spectral Densities of future multi-wavelength jet variabilty observations. Here is our recent publication on the <a href="https://academic.oup.com/mnras/article-abstract/486/2/1672/5420451?redirectedFrom=fulltext"> the disk-jet connection in blazar. </a></p>
+</div>
+</div>
+</div>
+<!-- <hr>
             
             <div class="row">
                 <div class="col-lg-12">
@@ -250,16 +642,6 @@ If you also find yourself wondering about the nature of these faraway worlds, th
                 </div>
             </div>
         </div> -->
-
-
-    </section>
-
-
-
-
+</div></section>
 </body>
-
-
-
-
 </html>

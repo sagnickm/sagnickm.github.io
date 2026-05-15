@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Sagnick Mukherjee</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+    <!--font-awasome-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.min.css">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --page-bg: #f3f0e9;
+            --page-bg-2: #ece7dc;
+            --panel: rgba(255, 252, 246, 0.86);
+            --panel-strong: rgba(255, 252, 246, 0.96);
+            --border: rgba(49, 58, 70, 0.16);
+            --text: #24303d;
+            --muted: #5f6975;
+            --accent: #344a5f;
+            --accent-2: #7a6245;
+            --accent-3: #a28a68;
+            --shadow: 0 18px 52px rgba(33, 39, 46, 0.10);
+            --shadow-soft: 0 10px 28px rgba(33, 39, 46, 0.08);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            overflow-x: hidden;
+            color: var(--text);
+            font-family: "Inter", Arial, sans-serif;
+            line-height: 1.75;
+            background:
+                radial-gradient(circle at 14% 8%, rgba(122, 98, 69, 0.08), transparent 28%),
+                radial-gradient(circle at 88% 4%, rgba(52, 74, 95, 0.08), transparent 30%),
+                linear-gradient(180deg, var(--page-bg) 0%, var(--page-bg-2) 52%, var(--page-bg) 100%);
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+            transition: all 0.28s ease;
+        }
+
+        a:hover {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .container {
+            max-width: 1240px;
+        }
+
+        /* Hero banner */
+        .banner-blog {
+            position: relative;
+            min-height: 405px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 88px 24px 110px;
+            isolation: isolate;
+            overflow: hidden;
+            background:
+                linear-gradient(135deg, rgba(31, 42, 54, 0.90), rgba(48, 57, 69, 0.82)),
+                url("images/banner-bg.jpg") center center / cover no-repeat;
+        }
+
+        .banner-blog::before,
+        .banner-blog::after {
+            content: "";
+            position: absolute;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .banner-blog::before {
+            width: 430px;
+            height: 430px;
+            left: -120px;
+            top: -150px;
+            background: radial-gradient(circle, rgba(198, 182, 153, 0.18), transparent 70%);
+        }
+
+        .banner-blog::after {
+            width: 520px;
+            height: 520px;
+            right: -180px;
+            bottom: -230px;
+            background: radial-gradient(circle, rgba(215, 207, 192, 0.12), transparent 70%);
+        }
+
+        .banner-caption {
+            width: min(900px, 100%);
+            padding: 46px 34px;
+            border: 1px solid rgba(244, 239, 229, 0.22);
+            border-radius: 34px;
+            background: rgba(25, 33, 43, 0.40);
+            box-shadow: 0 24px 72px rgba(0, 0, 0, 0.22);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .banner-caption h1 {
+            margin: 0 0 18px;
+            color: #f8f4eb;
+            font-family: "Playfair Display", Georgia, serif;
+            font-size: clamp(3rem, 7vw, 5.6rem);
+            line-height: 1.04;
+            letter-spacing: -0.03em;
+            font-weight: 900;
+            text-shadow: none;
+        }
+
+        .bread-crumb {
+            display: inline-flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+            margin-top: 0 !important;
+            padding: 11px 18px;
+            border-radius: 999px;
+            border: 1px solid rgba(244, 239, 229, 0.22);
+            background: rgba(255, 250, 240, 0.08);
+            color: rgba(248, 244, 235, 0.82);
+            font-size: 0.95rem;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+        }
+
+        .bread-crumb a {
+            color: #f8f4eb;
+        }
+
+        .bread-crumb a + a::before {
+            content: "•";
+            display: inline-block;
+            margin-right: 12px;
+            color: rgba(231, 219, 198, 0.90);
+        }
+
+        .bread-crumb a:hover {
+            color: #efe2ca;
+            transform: translateY(-1px);
+        }
+
+        /* Gallery */
+        .gallery {
+            position: relative;
+            z-index: 2;
+            margin-top: -56px;
+            padding: 0 0 100px;
+        }
+
+        .gallery-shell {
+            padding: 34px;
+            border: 1px solid var(--border);
+            border-radius: 40px;
+            background: rgba(255, 252, 246, 0.78);
+            box-shadow: var(--shadow);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+
+        .gallery-masonry {
+            column-count: 3;
+            column-gap: 22px;
+        }
+
+        .gallery-item {
+            display: inline-block;
+            width: 100%;
+            margin: 0 0 22px;
+            break-inside: avoid;
+            overflow: hidden;
+            border-radius: 24px;
+            border: 1px solid rgba(49, 58, 70, 0.16);
+            background: rgba(255, 252, 246, 0.96);
+            box-shadow: var(--shadow-soft);
+            transition:
+                transform 0.32s ease,
+                border-color 0.32s ease,
+                box-shadow 0.32s ease;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-4px);
+            border-color: rgba(52, 74, 95, 0.30);
+            box-shadow: 0 20px 44px rgba(33, 39, 46, 0.14);
+        }
+
+        .gallery-item img {
+            display: block;
+            width: 100%;
+            height: auto;
+            transition: transform 0.55s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.025);
+        }
+
+        @media (max-width: 991px) {
+            .banner-blog {
+                min-height: 380px;
+                padding: 74px 18px 96px;
+            }
+
+            .banner-caption {
+                padding: 36px 24px;
+                border-radius: 28px;
+            }
+
+            .gallery {
+                margin-top: -42px;
+                padding-bottom: 78px;
+            }
+
+            .gallery-shell {
+                padding: 24px;
+                border-radius: 32px;
+            }
+
+            .gallery-masonry {
+                column-count: 2;
+                column-gap: 18px;
+            }
+
+            .gallery-item {
+                margin-bottom: 18px;
+                border-radius: 22px;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .banner-blog {
+                min-height: 320px;
+            }
+
+            .banner-caption h1 {
+                font-size: clamp(2.7rem, 13vw, 4rem);
+            }
+
+            .bread-crumb {
+                width: 100%;
+                gap: 8px;
+                font-size: 0.88rem;
+            }
+
+            .gallery {
+                padding-bottom: 70px;
+            }
+
+            .gallery-shell {
+                padding: 16px;
+                border-radius: 26px;
+            }
+
+            .gallery-masonry {
+                column-count: 1;
+                column-gap: 0;
+            }
+
+            .gallery-item {
+                margin-bottom: 16px;
+                border-radius: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <section class="banner-blog">
+        <div class="banner-caption text-center">
+            <h1>Gallery</h1>
+            <div class="bread-crumb mt-10">
+                <a href="index.html">Home</a>
+                <a href="gallery.html">Gallery</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="gallery">
+        <div class="container">
+            <div class="gallery-shell">
+                <div class="gallery-masonry">
+
+                    <div class="gallery-item">
+                        <img src="images/IMG_1421.jpg" alt="">
+                    </div>
+
+                    <div class="gallery-item">
+                        <img src="images/IMG_1506.jpg" alt="">
+                    </div>
+
+                    <div class="gallery-item">
+                        <img src="images/IMG_1511.jpg" alt="">
+                    </div>
+
+                    <div class="gallery-item">
+                        <img src="images/IMG_9975.jpg" alt="">
+                    </div>
+
+                    <div class="gallery-item">
+                        <img src="images/IMG_0259.jpg" alt="">
+                    </div>
+
+                    <div class="gallery-item">
+                        <img src="images/IMG_0436.jpg" alt="">
+                    </div>
+
+                    <div class="gallery-item">
+                        <img src="images/IMG_001.jpg" alt="">
+                    </div>
+
+                    <div class="gallery-item">
+                        <img src="images/IMG_4446.jpg" alt="">
+                    </div>
+
+                    <div class="gallery-item">
+                        <img src="images/IMG_4982.jpg" alt="">
+                    </div>
+
+                    <div class="gallery-item">
+                        <img src="images/IMG_5376.jpg" alt="">
+                    </div>
+
+                    <div class="gallery-item">
+                        <img src="images/IMG_5822.jpg" alt="">
+                    </div>
+
+                    <div class="gallery-item">
+                        <img src="images/IMG_5582.jpg" alt="">
+                    </div>
+
+                    <div class="gallery-item">
+                        <img src="images/IMG_002.jpg" alt="">
+                    </div>
+
+                    <div class="gallery-item">
+                        <img src="images/IMG_0386.jpg" alt="">
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+
+</html>
