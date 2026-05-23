@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Media &amp; Press | Sagnick Mukherjee</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="Media and press coverage of Sagnick Mukherjee's exoplanet atmosphere research.">
+    <meta name="keywords" content="Sagnick Mukherjee, media, press, JWST, exoplanet weather, WASP-94A b">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet">
+    <link href="css/publications.css" rel="stylesheet" type="text/css">
+    <link href="css/media.css" rel="stylesheet" type="text/css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+
+<body class="media-page-square">
+    <section class="media-square-hero">
+        <div class="container">
+            <div class="media-square-hero-card">
+                <h1>Media &amp; Press</h1>
+                <div class="bread-crumb mt-10">
+                    <a href="index.html">Home</a>
+                    <a href="media.html">Media &amp; Press</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <main class="media-square-main">
+        <div class="container">
+            <section class="media-square-board">
+                <div class="media-square-heading">
+                    <p class="eyebrow">Press roundup</p>
+                    <h2>Coverage at a glance</h2>
+                </div>
+                <div class="press-square-grid" id="press-grid"></div>
+            </section>
+        </div>
+    </main>
+
+    <script>
+        var pressItems = [
+            { url: 'https://www.nature.com/articles/d41586-026-01608-3', category: 'High-profile coverage', outlet: 'Nature', title: 'JWST maps clouds and clear skies on a distant exoplanet', domain: 'nature.com', featured: true },
+            { url: 'https://www.scientificamerican.com/article/jwst-sees-partly-cloudy-skies-on-a-distant-giant-exoplanet/', category: 'Feature story', outlet: 'Scientific American', title: 'JWST Sees Partly Cloudy Skies on a Distant Giant Exoplanet', domain: 'scientificamerican.com', featured: true },
+            { url: 'https://www.forbes.com/sites/jamiecartereurope/2026/05/21/webb-telescope-detects-cloudy-mornings-and-clear-nights-on-alien-world/', category: 'News coverage', outlet: 'Forbes', title: 'Webb Telescope Detects Cloudy Mornings and Clear Nights on Alien World', domain: 'forbes.com' },
+            { url: 'https://mailchi.mp/nature/daily-briefing-13896524?e=36db96abdb', category: 'Daily briefing', outlet: 'Nature Briefing', title: 'Nature Daily Briefing', domain: 'mailchi.mp' },
+            { url: 'https://www.thetimes.com/uk/science/article/charting-weather-distant-world-james-webb-dhhgk95vh', category: 'News coverage', outlet: 'The Times', title: 'Charting weather on a distant world with James Webb', domain: 'thetimes.com' },
+            { url: 'https://phys.org/news/2026-05-astronomers-de-fog-exoplanet-atmospheres.html', category: 'Science news', outlet: 'Phys.org', title: 'Astronomers de-fog exoplanet atmospheres with new cloud-detecting method', domain: 'phys.org' },
+            { url: 'https://arstechnica.com/science/2026/05/jwst-maps-the-weather-on-a-hot-gas-giant-700-light-years-away/', category: 'Science coverage', outlet: 'Ars Technica', title: 'JWST maps the weather on a hot gas giant 700 light-years away', domain: 'arstechnica.com' },
+            { url: 'https://www.space.com/astronomy/james-webb-space-telescope/this-exoplanet-weather-forecast-by-the-james-webb-space-telescope-calls-for-sandy-skies-and-a-clear-alien-sunset', category: 'Space news', outlet: 'Space.com', title: 'This exoplanet weather forecast calls for sandy skies and a clear alien sunset', domain: 'space.com' },
+            { url: 'https://astrobiology.com/2026/05/astronomers-observe-exoplanet-atmospheres-with-new-cloud-detecting-method.html', category: 'Research news', outlet: 'Astrobiology.com', title: 'Astronomers observe exoplanet atmospheres with new cloud-detecting method', domain: 'astrobiology.com' },
+            { url: 'https://www.kevinvanpaassen.ca/alien-weather-exposed-how-the-james-webb-telescope-tracks-supersonic-iron-winds-on-wasp-94a-b/', category: 'Science feature', outlet: 'Kevin Van Paassen', title: 'Alien Weather Exposed', domain: 'kevinvanpaassen.ca' },
+            { url: 'https://www.gbnews.com/science/space-news-astronomers-huge-surprise-clouds-weather-distant-planet', category: 'Science news', outlet: 'GB News', title: 'Astronomers make huge surprise discovery about clouds on distant planet', domain: 'gbnews.com' },
+            { url: 'https://www.weltderphysik.de/gebiet/universum/nachrichten/2026/exoplaneten-planet-mit-aussergewoehnlicher-bewoelkung/', category: 'German coverage', outlet: 'Welt der Physik', title: 'Planet mit außergewöhnlicher Bewölkung', domain: 'weltderphysik.de' },
+            { url: 'https://www.agenciasinc.es/Noticias/El-telescopio-espacial-James-Webb-desnuda-con-la-mirada-a-un-Jupiter-caliente', category: 'Spanish coverage', outlet: 'Agencia SINC', title: 'El telescopio espacial James Webb desnuda con la mirada a un Júpiter caliente', domain: 'agenciasinc.es' },
+            { url: 'https://sciencevega.com/space-research-and-exploration/astronomers-de-fog-exoplanet-atmospheres/', category: 'Science news', outlet: 'ScienceVega', title: 'Astronomers de-fog exoplanet atmospheres', domain: 'sciencevega.com' },
+            { url: 'https://spacedaily.com/sd-jwst-just-mapped-the-morning-weather-on-a-planet-690-light-years-away-and-the-forecast-of-vaporized-rock-clouds-quietly-broke-a-100-fold-error-in-how-exoplanet-atmospheres-have-been-read-for-decade/', category: 'Space news', outlet: 'SpaceDaily', title: 'JWST mapped morning weather on a planet 690 light-years away', domain: 'spacedaily.com' },
+            { url: 'https://thedebrief.org/james-webb-space-telescope-discovery-parts-the-clouds-on-bizarre-exoplanet-weather/', category: 'Science news', outlet: 'The Debrief', title: 'James Webb discovery parts the clouds on bizarre exoplanet weather', domain: 'thedebrief.org' },
+            { url: 'https://www.media.inaf.it/2026/05/21/fosco-al-mattino-terso-la-sera-il-cielo-di-wasp-94a-b/', category: 'Italian coverage', outlet: 'INAF Media', title: 'Fosco al mattino, terso la sera: il cielo di WASP-94A b', domain: 'media.inaf.it' },
+            { url: 'https://m.ithome.com/html/953828.html', category: 'Chinese coverage', outlet: 'ITHome', title: 'Chinese-language coverage of the JWST exoplanet weather result', domain: 'ithome.com' },
+            { url: 'https://muyinteresante.okdiario.com/ciencia/jwst-exoplaneta-wasp-94a-b-clima.html', category: 'Spanish coverage', outlet: 'Muy Interesante', title: 'JWST observa el clima del exoplaneta WASP-94A b', domain: 'muyinteresante.okdiario.com' },
+            { url: 'https://scitechdaily.com/this-alien-planet-has-rock-clouds-that-vaporize-before-sunset/', category: 'Science news', outlet: 'SciTechDaily', title: 'This Alien Planet Has Rock Clouds That Vaporize Before Sunset', domain: 'scitechdaily.com' },
+            { url: 'https://www.zmescience.com/science/news-science/jwst-caught-dual-atmospheres-on-the-same-planet-600-light-years-from-earth/', category: 'Science news', outlet: 'ZME Science', title: 'JWST caught dual atmospheres on the same planet', domain: 'zmescience.com' },
+            { url: 'http://m.toinnov.com/news/morning-clouds-evening-st/', category: 'Science news', outlet: 'TOInnov', title: 'Morning clouds and evening starlight', domain: 'toinnov.com' },
+            { url: 'https://dailygalaxy.com/2026/05/webb-weather-planet-690-light-years-away/', category: 'Space news', outlet: 'The Daily Galaxy', title: 'Webb maps weather on a planet 690 light-years away', domain: 'dailygalaxy.com' },
+            { url: 'https://www.miragenews.com/jwst-finds-exoplanet-with-cloudy-mornings-clear-1678410/', category: 'Science news', outlet: 'Mirage News', title: 'JWST finds exoplanet with cloudy mornings, clear evenings', domain: 'miragenews.com' },
+            { url: 'https://hub.jhu.edu/2026/05/21/astronomy-exoplanet-atmospheres-detecting-clouds/', category: 'Institutional release', outlet: 'Johns Hopkins University', title: 'Astronomers de-fog exoplanet atmospheres with new cloud-detecting method', domain: 'hub.jhu.edu' },
+            { url: 'https://news.ucsc.edu/2026/05/exoplanet-cloud-cycles/', category: 'Institutional release', outlet: 'UC Santa Cruz', title: 'Astronomers find cloud cycles on a distant exoplanet', domain: 'news.ucsc.edu' },
+            { url: 'https://news.asu.edu/b/20260521-astronomers-get-peek-exoplanet-atmospheres-new-clouddetecting-method', category: 'Institutional release', outlet: 'Arizona State University', title: 'Astronomers get peek into exoplanet atmospheres with new cloud-detecting method', domain: 'news.asu.edu' },
+            { url: 'https://news.exeter.ac.uk/faculty-of-environment-science-and-economy/physics-and-astronomy/astronomers-de-fog-exoplanet-atmospheres-with-new-cloud-detecting-method/', category: 'Institutional release', outlet: 'University of Exeter', title: 'Astronomers de-fog exoplanet atmospheres with new cloud-detecting method', domain: 'news.exeter.ac.uk' },
+            { url: 'https://news.ucsc.edu/2025/03/pegasi-fellowship-mukherjee/', category: 'Fellowship news', outlet: 'UC Santa Cruz', title: 'Sagnick Mukherjee named 51 Pegasi b Fellow', domain: 'news.ucsc.edu' },
+            { url: 'https://www.thebrighterside.news/post/jwst-catches-mineral-clouds-forming-and-fading-on-hot-jupiter-exoplanet/', category: 'Science news', outlet: 'The Brighter Side', title: 'JWST catches mineral clouds forming and fading on hot Jupiter exoplanet', domain: 'thebrighterside.news' }
+        ];
+
+        var grid = document.getElementById('press-grid');
+
+        pressItems.forEach(function(item, index) {
+            var card = document.createElement('a');
+            var rank = String(index + 1).padStart(2, '0');
+
+            card.className = 'press-square-card' + (item.featured ? ' press-square-featured' : '');
+            card.href = item.url;
+            card.target = '_blank';
+            card.rel = 'noopener';
+            card.innerHTML =
+                '<div class="press-square-preview"><img src="https://api.microlink.io/?screenshot=true&amp;embed=screenshot.url&amp;url=' + encodeURIComponent(item.url) + '" alt="' + item.outlet + ' article preview" loading="lazy" referrerpolicy="no-referrer"></div>' +
+                '<div class="press-square-topline"><span class="press-square-rank">' + rank + '</span><span class="press-square-arrow"><i class="fa fa-external-link"></i></span></div>' +
+                '<div class="press-square-logo"><img src="https://www.google.com/s2/favicons?domain=' + item.domain + '&amp;sz=128" alt=""></div>' +
+                '<div class="press-square-text"><span class="press-square-category">' + item.category + '</span><h2>' + item.outlet + '</h2><p>' + item.title + '</p></div>' +
+                '<div class="press-square-domain">' + item.domain + '</div>';
+
+            card.querySelector('.press-square-preview img').onerror = function() {
+                card.querySelector('.press-square-preview').classList.add('press-square-preview-fallback');
+            };
+
+            grid.appendChild(card);
+        });
+    </script>
+</body>
+
+</html>
