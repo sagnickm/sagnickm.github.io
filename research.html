@@ -500,6 +500,94 @@
             }
         }
 
+        /* Artist's impression figure stacked below the plot */
+        .research-press-figure {
+            margin: 16px 0 0;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            padding: 12px;
+            border: 1px solid rgba(49, 58, 70, 0.16);
+            border-radius: 18px;
+            background:
+                linear-gradient(135deg, rgba(52, 74, 95, 0.06), rgba(122, 98, 69, 0.06)),
+                rgba(255, 252, 246, 0.96);
+            box-shadow: var(--shadow-soft);
+        }
+
+        .research-press-figure .research-press-image {
+            display: block;
+            width: 100%;
+            height: auto;
+            min-height: 0;
+            max-height: none;
+            object-fit: contain;
+            border-radius: 12px;
+            box-shadow: 0 12px 30px rgba(33, 39, 46, 0.16);
+        }
+
+        .research-press-caption {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+            color: var(--muted);
+            font-size: 0.82rem;
+            font-weight: 700;
+            line-height: 1.4;
+            text-align: center;
+        }
+
+        .research-press-credit {
+            color: var(--accent);
+            font-size: 0.78rem;
+            font-weight: 900;
+            letter-spacing: 0.02em;
+        }
+
+        /* Click-to-enlarge behavior for all research images */
+        .research img {
+            cursor: zoom-in;
+        }
+
+        .research-lightbox {
+            position: fixed;
+            inset: 0;
+            z-index: 5000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 34px;
+            background: rgba(10, 16, 24, 0.88);
+        }
+
+        .research-lightbox.is-open {
+            display: flex;
+        }
+
+        .research-lightbox img {
+            max-width: min(94vw, 1200px);
+            max-height: 92vh;
+            object-fit: contain;
+            border-radius: 12px;
+            box-shadow: 0 30px 90px rgba(0, 0, 0, 0.42);
+            cursor: zoom-out;
+        }
+
+        .research-lightbox button {
+            position: absolute;
+            top: 18px;
+            right: 18px;
+            width: 44px;
+            height: 44px;
+            border: 1px solid rgba(255, 255, 255, 0.24);
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.12);
+            color: #fff;
+            font-size: 1.4rem;
+            line-height: 1;
+            cursor: pointer;
+        }
+
 </style>
 </head>
 <body>
@@ -546,7 +634,7 @@ If you also find yourself wondering about the nature of these faraway worlds, th
 
 <div class="col-lg-12">
 <div class="content-details">
-<div class="research-float-image research-image-right"><img class="img-fluid" src="images/WASP94Ab_arxiv.jpeg"/></div><p class="content-text"> WASP-94A b is a near-Saturn-mass planet with a Jupiter-sized (or larger) radius. Using JWST/NIRISS transmission spectroscopy, we discovered a dramatic morning-evening terminator asymmetry: the morning limb is completely aerosol-dominated and shows essentially no molecular absorption, while the evening limb is comparatively clear and exhibits strong water-vapor features. While earlier work has reported terminator differences driven by chemistry and temperature (e.g., Espinoza et al. 2024; Murphy et al. 2024; Ehrenreich et al. 2020), this is the first direct evidence that the aerosol properties themselves differ between the two limbs, pointing to condensed clouds, not photochemical hazes, as the dominant aerosol source in this atmosphere. We infer that cloud particles are lofted to unusually high altitudes on the cooler morning side but evaporate at the hotter evening terminator, enabling us to constrain the planet's cloud transport pattern, limb-to-limb temperature gradients, and key cloud-circulation timescales. This inhomogeneous cloud coverage also produces large retrieval biases, shifting inferred chemical abundances by &gt;4σ, showing that ignoring limb asymmetries can lead to misleading atmospheric compositions. The WASP-94A b study is now published in Science; the link to the article is <a href="https://www.science.org/doi/10.1126/science.adx5903">Mukherjee et al. (2026b)</a>. In a follow-up study, we show this behavior is common (though not universal) across JWST hot-Jupiter transmission spectra: morning limbs tend to look more muted by aerosols, while evening limbs are often clearer, making WASP-94A b a benchmark for this cloudy/clear pattern (<a href="https://ui.adsabs.harvard.edu/abs/2025ApJ...989L..17F/abstract">Fu, Mukherjee et al. 2025, ApJL</a>). Finally, these results matter beyond hot Jupiters: for sub-Neptunes and terrestrial planets, partial cloud coverage can obscure spectral features, bias abundance inferences, and potentially complicate biosignature searches in systems like TRAPPIST-1 and K2-18 b </p>
+<div class="research-float-image research-image-right"><img class="img-fluid" src="images/WASP94Ab_arxiv.jpeg"/><figure class="research-press-figure"><img class="research-press-image" src="images/Press Release - Science - Sing and Mukherjee.png" alt="Artist's impression used in press interactions"/><figcaption class="research-press-caption">Artist's impression used in press interactions<span class="research-press-credit">Credit: Hannah Robins</span></figcaption></figure></div><p class="content-text"> WASP-94A b is a near-Saturn-mass planet with a Jupiter-sized (or larger) radius. Using JWST/NIRISS transmission spectroscopy, we discovered a dramatic morning-evening terminator asymmetry: the morning limb is completely aerosol-dominated and shows essentially no molecular absorption, while the evening limb is comparatively clear and exhibits strong water-vapor features. While earlier work has reported terminator differences driven by chemistry and temperature (e.g., Espinoza et al. 2024; Murphy et al. 2024; Ehrenreich et al. 2020), this is the first direct evidence that the aerosol properties themselves differ between the two limbs, pointing to condensed clouds, not photochemical hazes, as the dominant aerosol source in this atmosphere. We infer that cloud particles are lofted to unusually high altitudes on the cooler morning side but evaporate at the hotter evening terminator, enabling us to constrain the planet's cloud transport pattern, limb-to-limb temperature gradients, and key cloud-circulation timescales. This inhomogeneous cloud coverage also produces large retrieval biases, shifting inferred chemical abundances by &gt;4σ, showing that ignoring limb asymmetries can lead to misleading atmospheric compositions. The WASP-94A b study is now published in Science; the link to the article is <a href="https://www.science.org/doi/10.1126/science.adx5903">Mukherjee et al. (2026b)</a>. In a follow-up study, we show this behavior is common (though not universal) across JWST hot-Jupiter transmission spectra: morning limbs tend to look more muted by aerosols, while evening limbs are often clearer, making WASP-94A b a benchmark for this cloudy/clear pattern (<a href="https://ui.adsabs.harvard.edu/abs/2025ApJ...989L..17F/abstract">Fu, Mukherjee et al. 2025, ApJL</a>). Finally, these results matter beyond hot Jupiters: for sub-Neptunes and terrestrial planets, partial cloud coverage can obscure spectral features, bias abundance inferences, and potentially complicate biosignature searches in systems like TRAPPIST-1 and K2-18 b </p>
 </div>
 </div>
 </div>
@@ -558,7 +646,7 @@ If you also find yourself wondering about the nature of these faraway worlds, th
 
 <div class="col-lg-12">
 <div class="content-details">
-<div class="research-float-image research-image-right"><img class="img-fluid" src="images/sub-neptune-clouds-interface.png" alt="Cloud effects on sub-Neptune atmospheric temperature profiles and deep heating"/></div><p class="content-text">Sub-Neptunes are among the most common close-in planets in the galaxy, but we still do not know what they are made of. They could be rocky planets with H-rich envelopes, volatile-rich worlds, or planets with more unusual interior compositions. A major hope is that atmospheric observations with facilities like JWST can distinguish between these possibilities. However, this assumes that the atmosphere we observe mainly reflects the planet’s bulk composition or formation history. Our paper shows that this assumption may be incomplete: the atmosphere can be strongly modified by interactions with the deep interior, and clouds can control how strong those interactions are. Using the PICASO 1D climate model coupled to interior-structure and magma-atmosphere chemistry calculations, we show that clouds can dramatically reshape the thermal structures of sub-Neptune planets. In temperate sub-Neptunes such as TOI-270 d, clouds can cool the upper atmosphere by about 600 K near 1 bar, while heating the deep atmosphere by more than 1000 K near 10,000 bar. This means clouds do not simply mute spectral features at observable pressures; they can also change the physical conditions far deeper in the planet. This deep heating has major consequences for the atmosphere-mantle boundary. For most planets in our sample, clouds raise the temperature at this boundary by about 1400–2600 K. This can determine whether the interface between the atmosphere and mantle is solid or molten. Most of the studied sub-Neptunes are expected to have molten atmosphere-mantle interfaces, but TOI-1231 b and GJ 1214 b are especially sensitive cases: clear models can allow a solid boundary, while cloudy models produce a molten interface. A molten interface allows the atmosphere and interior to chemically exchange material. We show that cloud-driven heating can therefore alter the composition of the gas at the base of the atmosphere. For TOI-270 d, cloudy models increase the abundances of species such as O₂, SiH₄, and SiO by &gt;36% relative to clear models. Therefore, our paper (<a href="https://ui.adsabs.harvard.edu/abs/2026arXiv260527353M/abstract">Mukherjee et al. (2026c)</a>), accepted in ApJL, shows that clouds in sub-Neptune atmospheres are much more important beyond their muting effect on observable spectra. They can regulate deep temperatures, determine whether magma oceans exist, modify atmospheric chemistry through atmosphere-interior exchange, and affect the thermal evolution and intrinsic heat flux of these planets. This makes clouds central to understanding what sub-Neptunes are made of and how they evolve.</p>
+<div class="research-float-image research-image-right"><img class="img-fluid" src="images/sub-neptune-clouds-interface.png" alt="Cloud effects on sub-Neptune atmospheric temperature profiles and deep heating"/><figure class="research-press-figure"><img class="research-press-image" src="images/cover_new_final.jpg" alt="Artist's impression used in press interactions"/><figcaption class="research-press-caption">Artist's impression used in press interactions<span class="research-press-credit">Credit: Hailey Nelson</span></figcaption></figure></div><p class="content-text">Sub-Neptunes are among the most common close-in planets in the galaxy, but we still do not know what they are made of. They could be rocky planets with H-rich envelopes, volatile-rich worlds, or planets with more unusual interior compositions. A major hope is that atmospheric observations with facilities like JWST can distinguish between these possibilities. However, this assumes that the atmosphere we observe mainly reflects the planet’s bulk composition or formation history. Our paper shows that this assumption may be incomplete: the atmosphere can be strongly modified by interactions with the deep interior, and clouds can control how strong those interactions are. Using the PICASO 1D climate model coupled to interior-structure and magma-atmosphere chemistry calculations, we show that clouds can dramatically reshape the thermal structures of sub-Neptune planets. In temperate sub-Neptunes such as TOI-270 d, clouds can cool the upper atmosphere by about 600 K near 1 bar, while heating the deep atmosphere by more than 1000 K near 10,000 bar. This means clouds do not simply mute spectral features at observable pressures; they can also change the physical conditions far deeper in the planet. This deep heating has major consequences for the atmosphere-mantle boundary. For most planets in our sample, clouds raise the temperature at this boundary by about 1400–2600 K. This can determine whether the interface between the atmosphere and mantle is solid or molten. Most of the studied sub-Neptunes are expected to have molten atmosphere-mantle interfaces, but TOI-1231 b and GJ 1214 b are especially sensitive cases: clear models can allow a solid boundary, while cloudy models produce a molten interface. A molten interface allows the atmosphere and interior to chemically exchange material. We show that cloud-driven heating can therefore alter the composition of the gas at the base of the atmosphere. For TOI-270 d, cloudy models increase the abundances of species such as O₂, SiH₄, and SiO by &gt;36% relative to clear models. Therefore, our paper (<a href="https://ui.adsabs.harvard.edu/abs/2026arXiv260527353M/abstract">Mukherjee et al. (2026c)</a>), accepted in ApJL, shows that clouds in sub-Neptune atmospheres are much more important beyond their muting effect on observable spectra. They can regulate deep temperatures, determine whether magma oceans exist, modify atmospheric chemistry through atmosphere-interior exchange, and affect the thermal evolution and intrinsic heat flux of these planets. This makes clouds central to understanding what sub-Neptunes are made of and how they evolve.</p>
 </div>
 </div>
 </div>
@@ -675,6 +763,53 @@ If you also find yourself wondering about the nature of these faraway worlds, th
             </div>
         </div> -->
 </div></section>
+<div class="research-lightbox" aria-hidden="true">
+<button type="button" aria-label="Close image preview">&times;</button>
+<img src="" alt="Enlarged research image"/>
+</div>
+<script>
+    (function() {
+        var lightbox = document.querySelector('.research-lightbox');
+        if (!lightbox) {
+            return;
+        }
+
+        var lightboxImage = lightbox.querySelector('img');
+        var closeButton = lightbox.querySelector('button');
+
+        function openLightbox(src, alt) {
+            lightboxImage.src = src;
+            lightboxImage.alt = alt || 'Enlarged research image';
+            lightbox.classList.add('is-open');
+            lightbox.setAttribute('aria-hidden', 'false');
+        }
+
+        function closeLightbox() {
+            lightbox.classList.remove('is-open');
+            lightbox.setAttribute('aria-hidden', 'true');
+            lightboxImage.src = '';
+        }
+
+        document.querySelectorAll('.research img').forEach(function(img) {
+            img.addEventListener('click', function() {
+                openLightbox(img.currentSrc || img.src, img.alt);
+            });
+        });
+
+        closeButton.addEventListener('click', closeLightbox);
+        lightbox.addEventListener('click', function(event) {
+            if (event.target !== closeButton) {
+                closeLightbox();
+            }
+        });
+
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape' && lightbox.classList.contains('is-open')) {
+                closeLightbox();
+            }
+        });
+    }());
+</script>
 <script data-goatcounter="https://sagnick.goatcounter.com/count"
 async src="//gc.zgo.at/count.js"></script>
 </body>
