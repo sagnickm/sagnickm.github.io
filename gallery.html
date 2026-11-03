@@ -183,9 +183,23 @@
             -webkit-backdrop-filter: blur(8px);
         }
 
+        /* Items are distributed left-to-right into columns by script, so
+           HTML order is reading order (item 1 top-left, item 2 top-middle...). */
         .gallery-masonry {
-            column-count: 3;
-            column-gap: 22px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: flex-start;
+            gap: 0 22px;
+        }
+
+        .gallery-column {
+            flex: 1 1 0;
+            min-width: 0;
+        }
+
+        /* No-script fallback: items flow as three equal columns per row. */
+        .gallery-masonry > .gallery-item {
+            flex: 0 0 calc((100% - 44px) / 3);
         }
 
         .gallery-item {
@@ -282,8 +296,11 @@
             }
 
             .gallery-masonry {
-                column-count: 2;
-                column-gap: 18px;
+                gap: 0 18px;
+            }
+
+            .gallery-masonry > .gallery-item {
+                flex-basis: calc((100% - 18px) / 2);
             }
 
             .gallery-item {
@@ -317,8 +334,11 @@
             }
 
             .gallery-masonry {
-                column-count: 1;
-                column-gap: 0;
+                gap: 0;
+            }
+
+            .gallery-masonry > .gallery-item {
+                flex-basis: 100%;
             }
 
             .gallery-item {
@@ -347,6 +367,34 @@
                 <div class="gallery-masonry">
 
                     <div class="gallery-item">
+                        <img src="images/talk_asymmetric_limbs.jpg" alt="Sagnick presenting a talk slide on asymmetric vs. spherically symmetric exoplanet limbs">
+                    </div>
+
+                    <div class="gallery-item">
+                        <img src="images/talk_hst_legacy.jpg" alt="Sagnick presenting a talk slide on the legacy of the Hubble Space Telescope for exoplanet atmospheres">
+                    </div>
+
+                    <div class="gallery-item">
+                        <img src="images/IMG_7026.jpg" alt="">
+                    </div>
+
+                    <div class="gallery-item">
+                        <img src="images/IMG_006.jpg" alt="">
+                    </div>
+
+                    <div class="gallery-item">
+                        <img src="images/IMG_008.jpg" alt="">
+                    </div>
+
+                    <div class="gallery-item">
+                        <img src="images/IMG_009.jpg" alt="">
+                    </div>
+
+                    <div class="gallery-item">
+                        <img src="images/IMG_002.jpg" alt="">
+                    </div>
+
+                    <div class="gallery-item">
                         <img src="images/IMG_1421.jpg" alt="">
                     </div>
 
@@ -355,15 +403,7 @@
                     </div>
 
                     <div class="gallery-item">
-                        <img src="images/IMG_7026.jpg" alt="">
-                    </div>
-
-                    <div class="gallery-item">
                         <img src="images/IMG_1511.jpg" alt="">
-                    </div>
-
-                    <div class="gallery-item">
-                        <img src="images/IMG_006.jpg" alt="">
                     </div>
 
                     <div class="gallery-item">
@@ -379,19 +419,11 @@
                     </div>
 
                     <div class="gallery-item">
-                        <img src="images/IMG_008.jpg" alt="">
-                    </div>
-
-                    <div class="gallery-item">
                         <img src="images/IMG_0436.jpg" alt="">
                     </div>
 
                     <div class="gallery-item">
                         <img src="images/IMG_001.jpg" alt="">
-                    </div>
-
-                    <div class="gallery-item">
-                        <img src="images/IMG_009.jpg" alt="">
                     </div>
 
                     <div class="gallery-item">
@@ -419,16 +451,8 @@
                     </div>
 
                     <div class="gallery-item">
-                        <img src="images/IMG_002.jpg" alt="">
-                    </div>
-
-                    <div class="gallery-item">
                         <img src="images/IMG_0386.jpg" alt="">
                     </div>
-
-                    
-
-                    
 
                 </div>
             </div>
@@ -442,6 +466,37 @@
 
     <script>
         (function() {
+            var masonry = document.querySelector('.gallery-masonry');
+            var items = Array.prototype.slice.call(masonry.querySelectorAll('.gallery-item'));
+            var currentColumns = 0;
+
+            function columnCount() {
+                var width = window.innerWidth;
+                if (width <= 767) { return 1; }
+                if (width <= 991) { return 2; }
+                return 3;
+            }
+
+            function layoutColumns() {
+                var count = columnCount();
+                if (count === currentColumns) { return; }
+                currentColumns = count;
+                masonry.innerHTML = '';
+                var columns = [];
+                for (var i = 0; i < count; i += 1) {
+                    var column = document.createElement('div');
+                    column.className = 'gallery-column';
+                    masonry.appendChild(column);
+                    columns.push(column);
+                }
+                items.forEach(function(item, index) {
+                    columns[index % count].appendChild(item);
+                });
+            }
+
+            layoutColumns();
+            window.addEventListener('resize', layoutColumns);
+
             var lightbox = document.querySelector('.gallery-lightbox');
             var lightboxImage = lightbox.querySelector('img');
             var closeButton = lightbox.querySelector('button');
